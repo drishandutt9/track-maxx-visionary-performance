@@ -42,18 +42,20 @@ const BAND_KEYFRAMES: OrbitKeyframe[] = [
 ];
 
 // Keyframes for the BOTTLE model (Place-it → Features → Bottle Fit → Beauty)
+// Model is tall & narrow (aspect 2.5:1). Bounding sphere radius ~1.09.
+// At FOV 35deg, need ~313% radius to see full height. Use 280–380 range.
 const BOTTLE_KEYFRAMES: OrbitKeyframe[] = [
-  { progress: 0.46, theta: 0, phi: 65, radius: 300, fov: 45 },
-  { progress: 0.49, theta: 20, phi: 65, radius: 280, fov: 42 },
-  { progress: 0.55, theta: 315, phi: 60, radius: 270, fov: 40 },
-  { progress: 0.58, theta: 30, phi: 65, radius: 290, fov: 44 },
-  { progress: 0.65, theta: 60, phi: 62, radius: 280, fov: 42 },
-  { progress: 0.72, theta: 0, phi: 68, radius: 220, fov: 38 },
-  { progress: 0.75, theta: 0, phi: 68, radius: 220, fov: 38 },
-  { progress: 0.78, theta: 180, phi: 65, radius: 250, fov: 40 },
-  { progress: 0.80, theta: 0, phi: 62, radius: 300, fov: 45 },
-  { progress: 0.82, theta: 0, phi: 62, radius: 300, fov: 45 },
-  { progress: 0.85, theta: 0, phi: 65, radius: 320, fov: 45 },
+  { progress: 0.46, theta: 0,   phi: 65, radius: 350, fov: 35 },
+  { progress: 0.49, theta: 20,  phi: 68, radius: 330, fov: 35 },
+  { progress: 0.55, theta: 315, phi: 62, radius: 320, fov: 33 },
+  { progress: 0.58, theta: 30,  phi: 68, radius: 350, fov: 36 },
+  { progress: 0.65, theta: 60,  phi: 65, radius: 340, fov: 35 },
+  { progress: 0.72, theta: 0,   phi: 72, radius: 280, fov: 30 },
+  { progress: 0.75, theta: 0,   phi: 72, radius: 280, fov: 30 },
+  { progress: 0.78, theta: 180, phi: 65, radius: 300, fov: 32 },
+  { progress: 0.80, theta: 0,   phi: 62, radius: 360, fov: 36 },
+  { progress: 0.82, theta: 0,   phi: 62, radius: 360, fov: 36 },
+  { progress: 0.85, theta: 0,   phi: 65, radius: 380, fov: 38 },
 ];
 
 function clamp(value: number, min: number, max: number) {
