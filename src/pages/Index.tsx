@@ -4,6 +4,7 @@ import LensReveal from '@/components/LensReveal';
 import ProblemSection from '@/components/ProblemSection';
 import HowItWorksSection from '@/components/HowItWorksSection';
 import FeaturesSection from '@/components/FeaturesSection';
+import MarqueeTicker from '@/components/MarqueeTicker';
 import BottleFitSection from '@/components/BottleFitSection';
 import ComparisonSection from '@/components/ComparisonSection';
 import PricingSection from '@/components/PricingSection';
@@ -46,6 +47,7 @@ const Index = () => {
           exposure="1.2"
           interaction-prompt="none"
           camera-orbit="0deg 75deg 2.5m"
+          loading="lazy"
           style={{
             width: '100%',
             height: '100%',
@@ -72,6 +74,9 @@ const Index = () => {
 
         {/* S5: Features 58%–72% */}
         <FeaturesSection />
+
+        {/* Tech Marquee Ticker */}
+        <MarqueeTicker />
 
         {/* S6: Bottle Fit 72%–82% */}
         <BottleFitSection />
