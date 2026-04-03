@@ -6,9 +6,17 @@ const LensReveal = () => {
   const ref = useScrollReveal();
 
   return (
-    <section ref={ref} className="min-h-[80vh] flex items-center">
+    <section ref={ref} className="min-h-[85vh] flex items-center">
       <div className="mx-auto max-w-content px-[var(--gutter)] w-full">
-        <div className="max-w-md ml-auto text-right">
+        <div
+          className="max-w-md ml-auto text-right rounded-2xl p-8"
+          style={{
+            background: 'rgba(0,0,0,0.55)',
+            backdropFilter: 'blur(16px)',
+            WebkitBackdropFilter: 'blur(16px)',
+            border: '1px solid rgba(255,255,255,0.06)',
+          }}
+        >
           <p className="font-mono-label mb-3 anim-up" style={{ color: 'var(--tm-accent)' }}>
             150° Wide-Angle Vision
           </p>
@@ -39,7 +47,7 @@ const LensReveal = () => {
                 <div
                   key={spec}
                   className={`anim-up stagger-${i + 3} inline-flex items-center gap-1.5 px-4 py-2 rounded-full`}
-                  style={{ border: '1px solid var(--tm-border)' }}
+                  style={{ border: '1px solid var(--tm-border)', background: 'rgba(0,0,0,0.3)' }}
                 >
                   <span className="font-mono-label text-[12px]" style={{ color: 'var(--tm-accent)' }}>
                     {num}

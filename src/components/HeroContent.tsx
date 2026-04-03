@@ -26,7 +26,7 @@ const HeroContent = () => {
           className="font-heading leading-[0.95] anim-up stagger-1 mb-6"
           style={{
             color: 'var(--text)',
-            fontSize: 'clamp(48px, 8vw, 100px)',
+            fontSize: 'clamp(44px, 7vw, 90px)',
             fontWeight: 600,
             letterSpacing: '-0.03em',
           }}
