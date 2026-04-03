@@ -13,7 +13,7 @@ const ProblemSection = () => {
     <section ref={ref} className="min-h-[85vh] flex items-center justify-center">
       <div className="mx-auto max-w-content px-[var(--gutter)] w-full">
         <div
-          className="max-w-2xl mx-auto text-center rounded-2xl p-10 md:p-14"
+          className="max-w-2xl mx-auto text-center rounded-2xl px-6 py-8 md:p-10 md:p-14"
           style={{
             background: 'rgba(0,0,0,0.6)',
             backdropFilter: 'blur(20px)',
@@ -36,7 +36,7 @@ const ProblemSection = () => {
             <em style={{ color: 'var(--tm-accent)', fontStyle: 'italic' }}>blind.</em>
           </h2>
 
-          <div className="word-reveal anim-fade stagger-2 mb-10" style={{ maxWidth: '640px', margin: '0 auto 2.5rem' }}>
+          <div className="word-reveal anim-fade stagger-2 mb-10 px-2" style={{ maxWidth: '640px', margin: '0 auto 2.5rem' }}>
             {words.map((word, i) => (
               <span
                 key={i}
@@ -51,7 +51,7 @@ const ProblemSection = () => {
           <div className="flex items-center justify-center gap-2">
             <Eye size={20} style={{ color: 'var(--tm-accent)' }} className="anim-up stagger-3" />
             <p
-              className="text-xl md:text-2xl font-semibold anim-up stagger-3"
+              className="text-lg md:text-2xl font-semibold anim-up stagger-3"
               style={{ color: 'var(--tm-accent)' }}
             >
               They measure movement. Track-Maxx measures performance.
