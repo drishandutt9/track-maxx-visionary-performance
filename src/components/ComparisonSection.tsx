@@ -1,5 +1,5 @@
 import { useScrollReveal } from '@/hooks/useScrollReveal';
-import { IterationCcw, Target, Scale, Gauge, Timer, MapPin, CreditCard, Tag } from 'lucide-react';
+import { IterationCcw, Target, Scale, Gauge, Timer, MapPin, CreditCard } from 'lucide-react';
 import type { LucideIcon } from 'lucide-react';
 
 const features: { name: string; icon: LucideIcon }[] = [
