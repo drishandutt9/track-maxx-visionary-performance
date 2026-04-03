@@ -9,6 +9,7 @@ interface Step {
   desc: string;
   align: 'left' | 'right' | 'center';
   icon: LucideIcon;
+  image: string;
 }
 
 const steps: Step[] = [
@@ -19,6 +20,7 @@ const steps: Step[] = [
     desc: "Stretch the silicone band around any water bottle. 60mm to 100mm — it fits them all. IP67 rated. Drop it, splash it, sweat on it. It doesn't care.",
     align: 'right',
     icon: Grip,
+    image: '/gym-squat.jpg',
   },
   {
     num: '02',
@@ -27,6 +29,7 @@ const steps: Step[] = [
     desc: 'Set your bottle where you normally would — on the floor, on a bench, on a rack. The 150° wide-angle lens captures your entire body from any angle.',
     align: 'left',
     icon: MapPin,
+    image: '/gym-mirror.jpg',
   },
   {
     num: '03',
@@ -35,6 +38,7 @@ const steps: Step[] = [
     desc: "That's it. Track-Maxx auto-detects your exercise, counts reps, measures time under tension, scores form in real time, and flags dangerous movement patterns. You never touch your phone.",
     align: 'center',
     icon: Zap,
+    image: '/gym-dumbbell.jpg',
   },
 ];
 
