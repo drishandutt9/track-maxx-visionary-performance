@@ -102,6 +102,32 @@ const Index = () => {
             pointerEvents: 'none',
           }}
         />
+
+        {/* Hero bottle preview — small, bottom-right corner, fades out on scroll */}
+        <model-viewer
+          id="track-maxx-bottle-preview"
+          src="/bottle-band.glb"
+          alt="Track-Maxx on bottle"
+          auto-rotate
+          auto-rotate-delay="0"
+          rotation-per-second="12deg"
+          environment-image="neutral"
+          shadow-intensity="0.3"
+          exposure="1.1"
+          interaction-prompt="none"
+          camera-orbit="20deg 65deg 350%"
+          field-of-view="35deg"
+          disable-zoom
+          loading="lazy"
+          className="absolute pointer-events-none w-[140px] h-[200px] md:w-[200px] md:h-[280px]"
+          style={{
+            bottom: '18%',
+            right: '5%',
+            background: 'transparent',
+            zIndex: 3,
+            transition: 'opacity 0.5s ease',
+          }}
+        />
       </div>
 
       {/* Scrolling content layer */}
