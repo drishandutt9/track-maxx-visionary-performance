@@ -115,10 +115,10 @@ const Index = () => {
           shadow-intensity="0.3"
           exposure="1.1"
           interaction-prompt="none"
-          camera-orbit="20deg 75deg 25m"
-          field-of-view="22deg"
-          min-camera-orbit="auto auto auto"
-          max-camera-orbit="auto auto Infinity"
+          camera-orbit="20deg 75deg 500%"
+          field-of-view="12deg"
+          min-field-of-view="10deg"
+          max-field-of-view="15deg"
           disable-zoom
           loading="eager"
           style={{
