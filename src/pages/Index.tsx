@@ -115,21 +115,17 @@ const Index = () => {
           shadow-intensity="0.3"
           exposure="1.1"
           interaction-prompt="none"
-          camera-orbit="20deg 75deg 500%"
-          field-of-view="12deg"
-          min-field-of-view="10deg"
-          max-field-of-view="15deg"
+          camera-orbit="20deg 65deg 350%"
+          field-of-view="35deg"
           disable-zoom
-          loading="eager"
+          loading="lazy"
+          className="absolute pointer-events-none w-[140px] h-[200px] md:w-[200px] md:h-[280px]"
           style={{
-            position: 'absolute',
-            bottom: '14%',
-            right: '4%',
-            width: '180px',
-            height: '260px',
+            bottom: '18%',
+            right: '5%',
             background: 'transparent',
             zIndex: 3,
-            pointerEvents: 'none',
+            transition: 'opacity 0.5s ease',
           }}
         />
       </div>
