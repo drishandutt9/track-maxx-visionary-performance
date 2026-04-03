@@ -2,34 +2,34 @@ import { useScrollReveal } from '@/hooks/useScrollReveal';
 
 const features = [
   {
-    stat: '99.2%',
-    label: 'Rep Detection',
-    desc: 'Multi-joint pose estimation counts every rep across 50+ exercises — no wearable needed.',
+    num: '01',
+    title: 'Form Quality Scoring',
+    desc: 'Real-time 0–100 form score per rep. Flags knee valgus, back rounding, elbow flare. The feature personal trainers charge £50/hr for.',
   },
   {
-    stat: '±1.5°',
-    label: 'Form Analysis',
-    desc: 'Real-time joint-angle feedback scores your form and flags dangerous ranges mid-set.',
+    num: '02',
+    title: 'Auto Rep Counting',
+    desc: 'Detects 50+ exercises automatically. Counts concentric and eccentric phases. No manual logging. No buttons. Just lift.',
   },
   {
-    stat: '0.01s',
-    label: 'Time Under Tension',
-    desc: 'Frame-by-frame eccentric/concentric timing gives you TUT data per rep, per set.',
+    num: '03',
+    title: 'Asymmetry Detection',
+    desc: 'Compares left vs right side performance. ROM, velocity, form. Flags imbalances >10% that lead to injury.',
   },
   {
-    stat: '<3%',
-    label: 'Asymmetry Detection',
-    desc: 'Left-vs-right comparison surfaces imbalances before they become injuries.',
+    num: '04',
+    title: 'Velocity-Based Training',
+    desc: 'Bar/body speed per rep in m/s. Auto-regulate load based on velocity drop. Replaces £200–£500 VBT devices. Free.',
   },
   {
-    stat: 'm/s²',
-    label: 'Velocity Tracking',
-    desc: 'Bar speed and acceleration curves for velocity-based training, auto-logged.',
+    num: '05',
+    title: 'Injury Risk Alerts',
+    desc: 'Detects dangerous form BEFORE injury occurs. Excessive lumbar flexion, knee valgus beyond 15°. Preventive, not reactive.',
   },
   {
-    stat: '∞',
-    label: 'Any Bottle',
-    desc: 'Flexible silicone band stretches to fit any standard water bottle — no mount, no clip.',
+    num: '06',
+    title: 'AI Voice Coach',
+    desc: '"Knees out!" "Chest up!" "Slow the eccentric!" Live audio cues from real-time form analysis. Like having a PT behind you.',
   },
 ];
 
@@ -37,45 +37,53 @@ const FeaturesSection = () => {
   const ref = useScrollReveal();
 
   return (
-    <section
-      id="features"
-      ref={ref}
-      className="py-[var(--section-pad)]"
-    >
+    <section id="features" ref={ref} className="py-[var(--section-pad)]">
       <div className="mx-auto max-w-content px-[var(--gutter)]">
-        <p className="font-mono-label anim-up mb-4" style={{ color: 'var(--tm-accent)' }}>
-          What It Tracks
-        </p>
-        <h2
-          className="font-heading text-4xl md:text-5xl lg:text-6xl anim-up stagger-1 mb-16"
-          style={{ color: 'var(--text)' }}
-        >
-          Six metrics.
-          <br />
-          Zero wearables.
-        </h2>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {features.map((f, i) => (
-            <div
-              key={f.label}
-              className={`bracket-card p-8 anim-3d stagger-${Math.min(i + 1, 5)}`}
-              style={{ backdropFilter: 'blur(12px)' }}
+        <div className="flex flex-col lg:flex-row gap-12 lg:gap-16">
+          {/* Left side — heading (model visible behind) */}
+          <div className="lg:w-[35%] lg:sticky lg:top-32 lg:self-start">
+            <p className="font-mono-label anim-up mb-4" style={{ color: 'var(--tm-accent)' }}>
+              Capabilities
+            </p>
+            <h2
+              className="font-heading text-3xl md:text-4xl lg:text-5xl anim-up stagger-1"
+              style={{ color: 'var(--text)', letterSpacing: '-0.03em' }}
             >
-              <span
-                className="font-heading text-4xl md:text-5xl block mb-1"
-                style={{ color: 'var(--tm-accent)' }}
-              >
-                {f.stat}
-              </span>
-              <span className="font-mono-label block mb-4" style={{ color: 'var(--text-secondary)' }}>
-                {f.label}
-              </span>
-              <p className="text-sm leading-relaxed" style={{ color: 'var(--text-tertiary)' }}>
-                {f.desc}
-              </p>
+              What a camera sees that a wrist sensor never will.
+            </h2>
+          </div>
+
+          {/* Right side — 2×3 grid */}
+          <div className="lg:w-[60%]">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+              {features.map((f, i) => (
+                <div
+                  key={f.num}
+                  className={`bracket-card p-7 anim-3d stagger-${Math.min(i + 1, 5)} transition-all duration-300`}
+                  style={{ backdropFilter: 'blur(16px)' }}
+                >
+                  <span
+                    className="font-mono-label text-[11px] block mb-3"
+                    style={{ color: 'var(--tm-accent)' }}
+                  >
+                    {f.num}
+                  </span>
+                  <h3
+                    className="font-heading text-lg md:text-xl mb-3"
+                    style={{ color: 'var(--text)', letterSpacing: '-0.02em' }}
+                  >
+                    {f.title}
+                  </h3>
+                  <p
+                    className="text-sm leading-relaxed"
+                    style={{ color: 'var(--text-tertiary)', lineHeight: 1.65 }}
+                  >
+                    {f.desc}
+                  </p>
+                </div>
+              ))}
             </div>
-          ))}
+          </div>
         </div>
       </div>
     </section>

@@ -6,42 +6,88 @@ const HeroContent = () => {
   return (
     <section
       ref={ref}
-      className="relative min-h-screen flex flex-col items-center justify-center pointer-events-none"
+      className="relative min-h-screen flex flex-col items-center justify-end pb-12 pointer-events-none"
+      style={{ paddingTop: '45vh' }}
     >
-      {/* Top spacer for model visibility */}
-      <div className="flex-1" />
+      <div className="text-center px-4 pointer-events-auto max-w-3xl mx-auto">
+        {/* Badge pill */}
+        <div className="anim-fade inline-flex items-center gap-2 px-4 py-2 rounded-full mb-8" style={{ border: '1px solid var(--tm-border)' }}>
+          <span className="relative flex h-2 w-2">
+            <span className="animate-ping absolute inline-flex h-full w-full rounded-full opacity-75" style={{ background: '#22c55e' }} />
+            <span className="relative inline-flex rounded-full h-2 w-2" style={{ background: '#22c55e' }} />
+          </span>
+          <span className="font-mono-label text-[11px]" style={{ color: 'var(--text-secondary)' }}>
+            Vision AI Tracker — First of Its Kind
+          </span>
+        </div>
 
-      <div className="text-center px-4 pointer-events-auto">
-        <p className="font-mono-label mb-6 anim-up" style={{ color: 'var(--tm-accent)' }}>
-          Vision AI × Fitness Hardware
-        </p>
-
+        {/* Heading */}
         <h1
-          className="font-heading text-5xl md:text-7xl lg:text-8xl leading-[0.95] anim-up stagger-1"
-          style={{ color: 'var(--text)' }}
+          className="font-heading leading-[0.95] anim-up stagger-1 mb-6"
+          style={{
+            color: 'var(--text)',
+            fontSize: 'clamp(48px, 8vw, 100px)',
+            fontWeight: 600,
+            letterSpacing: '-0.03em',
+          }}
         >
-          Your Gym.
+          Your gym sees every rep.
           <br />
-          <span style={{ color: 'var(--tm-accent)' }}>Your Vision AI.</span>
+          Now your{' '}
+          <em style={{ color: 'var(--tm-accent)', fontStyle: 'italic' }}>tracker</em>{' '}
+          does too.
         </h1>
 
+        {/* Body */}
         <p
-          className="text-base md:text-lg leading-relaxed max-w-lg mx-auto mt-6 anim-up stagger-2"
-          style={{ color: 'var(--text-secondary)' }}
+          className="anim-up stagger-2 mx-auto mb-8"
+          style={{
+            color: 'var(--text-secondary)',
+            fontSize: '18px',
+            maxWidth: '560px',
+            lineHeight: 1.65,
+          }}
         >
-          A camera band that wraps around any water bottle. Computer vision
-          tracks every rep, every angle, every set — automatically.
+          The world's first camera band. Wraps around any water bottle. Counts your reps, scores
+          your form, and spots injury risks before they happen — all through vision AI.
         </p>
+
+        {/* CTA */}
+        <div className="anim-up stagger-3 flex flex-col items-center gap-3">
+          <a
+            href="#waitlist"
+            className="inline-block px-8 py-3.5 rounded-full font-semibold transition-all hover:scale-105 active:scale-95"
+            style={{
+              background: 'var(--tm-accent)',
+              color: '#000',
+              fontFamily: "'Fragment Mono', monospace",
+              fontSize: '13px',
+              letterSpacing: '0.08em',
+              textTransform: 'uppercase',
+            }}
+          >
+            Join the Waitlist — Early Access £69
+          </a>
+          <a
+            href="#"
+            className="transition-opacity hover:opacity-80"
+            style={{
+              color: 'var(--text-tertiary)',
+              fontSize: '13px',
+              textDecoration: 'underline',
+              textUnderlineOffset: '3px',
+            }}
+          >
+            Or try the free webcam MVP now — no hardware needed.
+          </a>
+        </div>
       </div>
 
       {/* Scroll indicator */}
-      <div className="flex-1 flex flex-col items-center justify-end pb-10">
-        <div className="flex flex-col items-center gap-2 opacity-40 anim-fade stagger-3">
-          <span className="font-mono-label text-[10px]" style={{ color: 'var(--text-tertiary)' }}>
-            Scroll
-          </span>
-          <div className="w-px h-8 animate-pulse" style={{ background: 'var(--text-tertiary)' }} />
-        </div>
+      <div className="absolute bottom-6 flex flex-col items-center gap-1 opacity-50 anim-fade stagger-4 pointer-events-none">
+        <span className="font-mono-label text-[11px] animate-bounce" style={{ color: 'var(--text-secondary)' }}>
+          ↓
+        </span>
       </div>
     </section>
   );

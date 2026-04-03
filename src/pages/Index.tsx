@@ -6,24 +6,29 @@ import HowItWorksSection from '@/components/HowItWorksSection';
 import FeaturesSection from '@/components/FeaturesSection';
 import BottleFitSection from '@/components/BottleFitSection';
 import ComparisonSection from '@/components/ComparisonSection';
+import PricingSection from '@/components/PricingSection';
 import CTASection from '@/components/CTASection';
 import Footer from '@/components/Footer';
 import { useScrollOrbit } from '@/hooks/useScrollOrbit';
 
 const Index = () => {
-  const { containerRef, glowRef } = useScrollOrbit();
+  const { containerRef, glowRef, modelWrapperRef } = useScrollOrbit();
 
   return (
     <div ref={containerRef} className="relative" style={{ background: 'var(--bg)' }}>
       <Navbar />
 
-      {/* Sticky model layer */}
-      <div className="sticky top-0 h-screen w-full" style={{ zIndex: 1 }}>
+      {/* Sticky model layer — persists through entire scroll */}
+      <div
+        ref={modelWrapperRef}
+        className="sticky top-0 h-screen w-full transition-opacity duration-500"
+        style={{ zIndex: 1 }}
+      >
         {/* Ambient glow */}
         <div
           ref={glowRef}
           className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-1 h-1 rounded-full pointer-events-none"
-          style={{ boxShadow: '0 0 200px 60px rgba(255,107,53,0.06)' }}
+          style={{ boxShadow: '0 0 200px 60px rgba(255,107,53,0.06)', zIndex: 0 }}
         />
 
         <model-viewer
@@ -45,34 +50,39 @@ const Index = () => {
             width: '100%',
             height: '100%',
             background: 'transparent',
+            position: 'relative',
+            zIndex: 1,
           }}
         />
       </div>
 
-      {/* Scrolling content layer */}
+      {/* Scrolling content layer — 9 sections, ~9x viewport height */}
       <div className="relative" style={{ zIndex: 2 }}>
-        {/* Hero — occupies 0%–15% scroll */}
+        {/* S1: Hero 0%–15% */}
         <HeroContent />
 
-        {/* Lens Reveal — 15%–28% */}
+        {/* S2: Lens Reveal 15%–28% */}
         <LensReveal />
 
-        {/* Problem — 28%–42% */}
+        {/* S3: Problem 28%–40% */}
         <ProblemSection />
 
-        {/* How It Works (Steps 1-3) — 42%–60% */}
+        {/* S4: How It Works 40%–58% */}
         <HowItWorksSection />
 
-        {/* Features — 60%–72% */}
+        {/* S5: Features 58%–72% */}
         <FeaturesSection />
 
-        {/* Bottle Fit + Inner Reveal — 72%–82% */}
+        {/* S6: Bottle Fit 72%–82% */}
         <BottleFitSection />
 
-        {/* Comparison — 82%–90% */}
+        {/* S7: Comparison 82%–90% */}
         <ComparisonSection />
 
-        {/* CTA — 90%–100% */}
+        {/* S8: Pricing 88%–93% */}
+        <PricingSection />
+
+        {/* S9: Final CTA 93%–100% */}
         <CTASection />
 
         <Footer />

@@ -1,56 +1,125 @@
 import { useScrollReveal } from '@/hooks/useScrollReveal';
 
-const rows = [
-  { metric: 'Rep Counting', tm: 'Auto — Vision AI', others: 'Manual / Accelerometer guess' },
-  { metric: 'Form Feedback', tm: 'Real-time angle scoring', others: 'None' },
-  { metric: 'Time Under Tension', tm: 'Per-rep, per-phase', others: 'Timer only' },
-  { metric: 'Asymmetry', tm: 'Left vs Right comparison', others: 'Not tracked' },
-  { metric: 'Velocity', tm: 'Frame-accurate m/s²', others: 'Requires separate device' },
-  { metric: 'Setup', tm: 'Wrap on bottle → go', others: 'Strap, clip, calibrate' },
+const features = [
+  'Auto rep counting',
+  'Form quality score',
+  'Asymmetry detection',
+  'Velocity tracking',
+  'Time under tension',
+  'Works at ANY gym',
+  'No subscription',
+  'Price',
+];
+
+const competitors = [
+  {
+    name: 'Track-Maxx',
+    values: ['✓ 50+ exercises', '✓ Real-time', '✓', '✓', '✓ Per-phase', '✓', '✓ Core free', '£99'],
+    highlight: true,
+  },
+  {
+    name: 'Apple Watch',
+    values: ['~6 exercises', '✗', '✗', '✗', '✗', '✓', '✓', '£399+'],
+    highlight: false,
+  },
+  {
+    name: 'Whoop',
+    values: ['✗', '✗', '✗', '✗', '✗', '✓', '✗ £24/mo', '£24/mo'],
+    highlight: false,
+  },
+  {
+    name: 'Tempo',
+    values: ['Limited', 'Home only', '✗', '✗', 'Total only', '✗ Home only', '✗ £39/mo', '£400–2500'],
+    highlight: false,
+  },
 ];
 
 const ComparisonSection = () => {
   const ref = useScrollReveal();
 
   return (
-    <section
-      id="pricing"
-      ref={ref}
-      className="py-[var(--section-pad)]"
-    >
+    <section id="pricing" ref={ref} className="py-[var(--section-pad)]">
       <div className="mx-auto max-w-content px-[var(--gutter)]">
         <p className="font-mono-label anim-up mb-4" style={{ color: 'var(--tm-accent)' }}>
-          Why Track-Maxx
+          The Competition
         </p>
         <h2
           className="font-heading text-4xl md:text-5xl anim-up stagger-1 mb-14"
-          style={{ color: 'var(--text)' }}
+          style={{ color: 'var(--text)', letterSpacing: '-0.03em' }}
         >
-          vs. Everything Else
+          See the difference.
         </h2>
 
-        <div
-          className="bracket-card overflow-hidden anim-fade stagger-2"
-          style={{ backdropFilter: 'blur(12px)' }}
-        >
-          <table className="w-full text-left">
-            <thead>
-              <tr style={{ borderBottom: '1px solid var(--tm-border)' }}>
-                <th className="font-mono-label p-5" style={{ color: 'var(--text-tertiary)' }}>Metric</th>
-                <th className="font-mono-label p-5" style={{ color: 'var(--tm-accent)' }}>Track-Maxx</th>
-                <th className="font-mono-label p-5" style={{ color: 'var(--text-tertiary)' }}>Others</th>
-              </tr>
-            </thead>
-            <tbody>
-              {rows.map((r) => (
-                <tr key={r.metric} style={{ borderBottom: '1px solid var(--tm-border)' }}>
-                  <td className="p-5 font-medium text-sm" style={{ color: 'var(--text-secondary)' }}>{r.metric}</td>
-                  <td className="p-5 text-sm" style={{ color: 'var(--text)' }}>{r.tm}</td>
-                  <td className="p-5 text-sm" style={{ color: 'var(--text-tertiary)' }}>{r.others}</td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
+        <div className="anim-fade stagger-2 overflow-x-auto" style={{ backdropFilter: 'blur(16px)' }}>
+          {/* Header row */}
+          <div
+            className="grid gap-0"
+            style={{
+              gridTemplateColumns: '180px repeat(4, 1fr)',
+              borderBottom: '1px solid var(--tm-border)',
+            }}
+          >
+            <div className="p-4" />
+            {competitors.map((c) => (
+              <div
+                key={c.name}
+                className="p-4 font-mono-label text-center"
+                style={{
+                  color: c.highlight ? 'var(--tm-accent)' : 'var(--text-tertiary)',
+                  borderTop: c.highlight ? '3px solid var(--tm-accent)' : 'none',
+                }}
+              >
+                {c.name}
+              </div>
+            ))}
+          </div>
+
+          {/* Data rows */}
+          {features.map((feature, fi) => (
+            <div
+              key={feature}
+              className="grid gap-0"
+              style={{
+                gridTemplateColumns: '180px repeat(4, 1fr)',
+                borderBottom: '1px solid var(--tm-border)',
+                background: fi % 2 === 0 ? 'transparent' : 'rgba(255,255,255,0.01)',
+              }}
+            >
+              <div
+                className="p-4 text-sm font-medium"
+                style={{ color: 'var(--text-secondary)' }}
+              >
+                {feature}
+              </div>
+              {competitors.map((c) => {
+                const val = c.values[fi];
+                const isCheck = val.startsWith('✓');
+                const isCross = val.startsWith('✗');
+                const isPrice = feature === 'Price' && c.highlight;
+
+                return (
+                  <div
+                    key={c.name + feature}
+                    className="p-4 text-sm text-center"
+                    style={{
+                      color: isCheck && c.highlight
+                        ? 'var(--tm-accent)'
+                        : isCross
+                        ? 'var(--text-tertiary)'
+                        : c.highlight
+                        ? 'var(--text)'
+                        : 'var(--text-tertiary)',
+                      fontSize: isPrice ? '24px' : undefined,
+                      fontWeight: isPrice ? 700 : undefined,
+                      fontFamily: isPrice ? "'Instrument Sans', system-ui" : undefined,
+                    }}
+                  >
+                    {val}
+                  </div>
+                );
+              })}
+            </div>
+          ))}
         </div>
       </div>
     </section>
