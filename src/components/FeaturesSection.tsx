@@ -37,12 +37,13 @@ const FeaturesSection = () => {
   const ref = useScrollReveal();
 
   return (
-    <section ref={ref} id="features" className="py-[60px] md:py-[120px]">
+    <section ref={ref} id="features" className="py-[120px]">
       <div className="mx-auto max-w-content px-[var(--gutter)]">
-        <div className="flex flex-col lg:flex-row gap-8 lg:gap-16">
+        <div className="flex flex-col lg:flex-row gap-12 lg:gap-16">
+          {/* Left side — heading */}
           <div className="lg:w-[35%] lg:sticky lg:top-32 lg:self-start">
             <div
-              className="rounded-2xl p-6 md:p-8"
+              className="rounded-2xl p-8"
               style={{
                 background: 'rgba(0,0,0,0.45)',
                 backdropFilter: 'blur(12px)',
@@ -62,12 +63,13 @@ const FeaturesSection = () => {
             </div>
           </div>
 
+          {/* Right side — 2×3 grid */}
           <div className="lg:w-[60%]">
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
               {features.map((f, i) => (
                 <div
                   key={f.num}
-                  className={`bracket-card anim-3d stagger-${Math.min(i + 1, 5)} p-5 md:p-6 transition-all duration-300`}
+                  className={`bracket-card anim-3d stagger-${Math.min(i + 1, 5)} p-6 transition-all duration-300`}
                 >
                   <span className="font-mono-label text-xs block mb-2" style={{ color: 'var(--tm-accent)' }}>
                     {f.num}

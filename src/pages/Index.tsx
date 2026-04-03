@@ -22,7 +22,7 @@ const Index = () => {
       {/* Sticky model layer — persists through entire scroll */}
       <div
         ref={modelWrapperRef}
-        className="sticky top-0 h-screen w-full"
+        className="sticky top-0 h-screen w-full transition-opacity duration-500"
         style={{ zIndex: 1 }}
       >
         {/* Ambient glow */}
