@@ -108,7 +108,6 @@ const ComparisonSection = () => {
                 const val = c.values[fi];
                 const isCheck = val.startsWith('✓');
                 const isCross = val.startsWith('✗');
-                const isPrice = feature.name === 'Price' && c.highlight;
 
                 return (
                   <div
@@ -122,9 +121,6 @@ const ComparisonSection = () => {
                         : c.highlight
                         ? 'var(--text)'
                         : 'var(--text-tertiary)',
-                      fontSize: isPrice ? '24px' : undefined,
-                      fontWeight: isPrice ? 700 : undefined,
-                      fontFamily: isPrice ? "'Instrument Sans', system-ui" : undefined,
                     }}
                   >
                     {val}
