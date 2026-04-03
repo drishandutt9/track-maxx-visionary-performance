@@ -12,6 +12,8 @@ declare global {
           'disable-zoom'?: boolean | string;
           'disable-pan'?: boolean | string;
           'disable-tap'?: boolean | string;
+          'disable-pan'?: boolean | string;
+          'disable-tap'?: boolean | string;
           'interaction-prompt'?: string;
           'camera-orbit'?: string;
           'camera-target'?: string;
