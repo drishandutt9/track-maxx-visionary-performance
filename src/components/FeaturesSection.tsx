@@ -37,46 +37,52 @@ const FeaturesSection = () => {
   const ref = useScrollReveal();
 
   return (
-    <section id="features" ref={ref} className="py-[var(--section-pad)]">
+    <section ref={ref} id="features" className="py-[120px]">
       <div className="mx-auto max-w-content px-[var(--gutter)]">
         <div className="flex flex-col lg:flex-row gap-12 lg:gap-16">
-          {/* Left side — heading (model visible behind) */}
+          {/* Left side — heading */}
           <div className="lg:w-[35%] lg:sticky lg:top-32 lg:self-start">
-            <p className="font-mono-label anim-up mb-4" style={{ color: 'var(--tm-accent)' }}>
-              Capabilities
-            </p>
-            <h2
-              className="font-heading text-3xl md:text-4xl lg:text-5xl anim-up stagger-1"
-              style={{ color: 'var(--text)', letterSpacing: '-0.03em' }}
+            <div
+              className="rounded-2xl p-8"
+              style={{
+                background: 'rgba(0,0,0,0.45)',
+                backdropFilter: 'blur(12px)',
+                WebkitBackdropFilter: 'blur(12px)',
+                border: '1px solid rgba(255,255,255,0.05)',
+              }}
             >
-              What a camera sees that a wrist sensor never will.
-            </h2>
+              <p className="font-mono-label mb-3 anim-up" style={{ color: 'var(--tm-accent)' }}>
+                Capabilities
+              </p>
+              <h2
+                className="font-heading text-3xl md:text-4xl anim-up stagger-1"
+                style={{ color: 'var(--text)', letterSpacing: '-0.03em' }}
+              >
+                What a camera sees that a wrist sensor never will.
+              </h2>
+            </div>
           </div>
 
           {/* Right side — 2×3 grid */}
           <div className="lg:w-[60%]">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
               {features.map((f, i) => (
                 <div
                   key={f.num}
-                  className={`bracket-card p-7 anim-3d stagger-${Math.min(i + 1, 5)} transition-all duration-300`}
-                  style={{ backdropFilter: 'blur(16px)' }}
+                  className={`bracket-card anim-3d stagger-${Math.min(i + 1, 5)} p-6 transition-all duration-300`}
                 >
-                  <span
-                    className="font-mono-label text-[11px] block mb-3"
-                    style={{ color: 'var(--tm-accent)' }}
-                  >
+                  <span className="font-mono-label text-xs block mb-2" style={{ color: 'var(--tm-accent)' }}>
                     {f.num}
                   </span>
                   <h3
-                    className="font-heading text-lg md:text-xl mb-3"
-                    style={{ color: 'var(--text)', letterSpacing: '-0.02em' }}
+                    className="font-heading text-lg mb-2"
+                    style={{ color: 'var(--text)' }}
                   >
                     {f.title}
                   </h3>
                   <p
                     className="text-sm leading-relaxed"
-                    style={{ color: 'var(--text-tertiary)', lineHeight: 1.65 }}
+                    style={{ color: 'var(--text-secondary)' }}
                   >
                     {f.desc}
                   </p>
