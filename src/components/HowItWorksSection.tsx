@@ -4,6 +4,7 @@ import type { LucideIcon } from 'lucide-react';
 
 interface Step {
   num: string;
+  slug: string;
   title: string;
   desc: string;
   align: 'left' | 'right' | 'center';
@@ -13,6 +14,7 @@ interface Step {
 const steps: Step[] = [
   {
     num: '01',
+    slug: 'wrap',
     title: 'Wrap it.',
     desc: "Stretch the silicone band around any water bottle. 60mm to 100mm — it fits them all. IP67 rated. Drop it, splash it, sweat on it. It doesn't care.",
     align: 'right',
@@ -20,6 +22,7 @@ const steps: Step[] = [
   },
   {
     num: '02',
+    slug: 'place',
     title: 'Place it.',
     desc: 'Set your bottle where you normally would — on the floor, on a bench, on a rack. The 150° wide-angle lens captures your entire body from any angle.',
     align: 'left',
@@ -27,6 +30,7 @@ const steps: Step[] = [
   },
   {
     num: '03',
+    slug: 'train',
     title: 'Train.',
     desc: "That's it. Track-Maxx auto-detects your exercise, counts reps, measures time under tension, scores form in real time, and flags dangerous movement patterns. You never touch your phone.",
     align: 'center',
@@ -69,6 +73,7 @@ const HowItWorksSection = () => {
                 className={`flex ${s.align === 'right' ? 'justify-end' : s.align === 'left' ? 'justify-start' : 'justify-center'}`}
               >
                 <div
+                  data-scroll-step={s.slug}
                   className={`anim-up stagger-${i + 2} max-w-md rounded-2xl p-8`}
                   style={{
                     background: 'rgba(0,0,0,0.55)',
