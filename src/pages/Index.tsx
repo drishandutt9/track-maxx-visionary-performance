@@ -115,20 +115,19 @@ const Index = () => {
           shadow-intensity="0.3"
           exposure="1.1"
           interaction-prompt="none"
-          camera-orbit="20deg 65deg 350%"
-          field-of-view="35deg"
+          camera-orbit="20deg 70deg 2.5m"
+          field-of-view="45deg"
           disable-zoom
           loading="eager"
           style={{
             position: 'absolute',
-            bottom: '18%',
-            right: '5%',
-            width: '200px',
-            height: '280px',
+            bottom: '12%',
+            right: '3%',
+            width: '240px',
+            height: '320px',
             background: 'transparent',
             zIndex: 3,
             pointerEvents: 'none',
-            transition: 'opacity 0.5s ease',
           }}
         />
       </div>
