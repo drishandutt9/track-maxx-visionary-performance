@@ -27,19 +27,20 @@ const BAND_KEYFRAMES: OrbitKeyframe[] = [
   { progress: 1.00, theta: 20,  phi: 78, radius: 105, fov: 30 },
 ];
 
-// Keyframes for the BOTTLE model
+// Keyframes for the BOTTLE model (Place-it → Features → Bottle Fit → Beauty)
+// This model is tall & narrow — needs higher radius (further camera) and lower phi (more top-down) to show the full assembly
 const BOTTLE_KEYFRAMES: OrbitKeyframe[] = [
-  { progress: 0.46, theta: 0,   phi: 80, radius: 110, fov: 30 },
-  { progress: 0.49, theta: 0,   phi: 80, radius: 105, fov: 30 },
-  { progress: 0.55, theta: 315, phi: 75, radius: 95,  fov: 28 },
-  { progress: 0.58, theta: 30,  phi: 80, radius: 110, fov: 32 },
-  { progress: 0.65, theta: 60,  phi: 78, radius: 105, fov: 30 },
-  { progress: 0.72, theta: 0,   phi: 85, radius: 75,  fov: 25 },
-  { progress: 0.75, theta: 0,   phi: 85, radius: 75,  fov: 25 },
-  { progress: 0.78, theta: 180, phi: 80, radius: 80,  fov: 26 },
-  { progress: 0.80, theta: 0,   phi: 75, radius: 110, fov: 30 },
-  { progress: 0.82, theta: 0,   phi: 75, radius: 110, fov: 30 },
-  { progress: 0.85, theta: 0,   phi: 75, radius: 120, fov: 32 },
+  { progress: 0.46, theta: 0,   phi: 70, radius: 160, fov: 30 },
+  { progress: 0.49, theta: 20,  phi: 72, radius: 155, fov: 30 },
+  { progress: 0.55, theta: 315, phi: 68, radius: 150, fov: 28 },
+  { progress: 0.58, theta: 30,  phi: 72, radius: 160, fov: 32 },
+  { progress: 0.65, theta: 60,  phi: 70, radius: 155, fov: 30 },
+  { progress: 0.72, theta: 0,   phi: 75, radius: 120, fov: 25 },
+  { progress: 0.75, theta: 0,   phi: 75, radius: 120, fov: 25 },
+  { progress: 0.78, theta: 180, phi: 70, radius: 130, fov: 26 },
+  { progress: 0.80, theta: 0,   phi: 68, radius: 160, fov: 30 },
+  { progress: 0.82, theta: 0,   phi: 68, radius: 160, fov: 30 },
+  { progress: 0.85, theta: 0,   phi: 70, radius: 170, fov: 32 },
 ];
 
 function lerp(a: number, b: number, t: number) {

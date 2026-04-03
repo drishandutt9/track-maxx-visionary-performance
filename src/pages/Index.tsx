@@ -85,7 +85,7 @@ const Index = () => {
           shadow-softness="0.8"
           exposure="1.1"
           interaction-prompt="none"
-          camera-orbit="0deg 80deg 110%"
+          camera-orbit="0deg 70deg 160%"
           field-of-view="30deg"
           min-field-of-view="20deg"
           max-field-of-view="45deg"
