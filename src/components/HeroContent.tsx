@@ -7,7 +7,7 @@ const HeroContent = () => {
     <section
       ref={ref}
       className="relative min-h-screen flex flex-col items-center justify-end pb-16 pointer-events-none"
-      style={{ paddingTop: '58vh' }}
+      style={{ paddingTop: 'clamp(45vh, 55vh, 58vh)' }}
     >
       <div className="text-center px-4 pointer-events-auto max-w-3xl mx-auto">
 
@@ -33,7 +33,7 @@ const HeroContent = () => {
           className="anim-up stagger-2 mx-auto mb-8"
           style={{
             color: 'var(--text-secondary)',
-            fontSize: '18px',
+            fontSize: 'clamp(15px, 3.5vw, 18px)',
             maxWidth: '560px',
             lineHeight: 1.65,
           }}

@@ -67,7 +67,7 @@ const ComparisonSection = () => {
           <div
             className="grid gap-0"
             style={{
-              gridTemplateColumns: '200px repeat(4, 1fr)',
+              gridTemplateColumns: 'minmax(100px, 140px) repeat(4, 1fr)',
               borderBottom: '1px solid var(--tm-border)',
             }}
           >
@@ -92,13 +92,13 @@ const ComparisonSection = () => {
               key={feature.name}
               className="grid gap-0"
               style={{
-                gridTemplateColumns: '200px repeat(4, 1fr)',
+                gridTemplateColumns: 'minmax(100px, 140px) repeat(4, 1fr)',
                 borderBottom: '1px solid var(--tm-border)',
                 background: fi % 2 === 0 ? 'transparent' : 'rgba(255,255,255,0.01)',
               }}
             >
               <div
-                className="p-4 text-sm font-medium flex items-center gap-2"
+                className="p-3 md:p-4 text-xs md:text-sm font-medium flex items-center gap-2"
                 style={{ color: 'var(--text-secondary)' }}
               >
                 {(() => { const Icon = feature.icon; return <Icon size={15} style={{ color: 'var(--tm-accent)', opacity: 0.7 }} />; })()}
@@ -112,7 +112,7 @@ const ComparisonSection = () => {
                 return (
                   <div
                     key={c.name + feature.name}
-                    className={`p-4 text-sm text-center ${!c.showMobile ? 'hidden md:block' : ''}`}
+                    className={`p-3 md:p-4 text-xs md:text-sm text-center ${!c.showMobile ? 'hidden md:block' : ''}`}
                     style={{
                       color: isCheck && c.highlight
                         ? 'var(--tm-accent)'
