@@ -118,13 +118,16 @@ const Index = () => {
           camera-orbit="20deg 65deg 350%"
           field-of-view="35deg"
           disable-zoom
-          loading="lazy"
-          className="absolute pointer-events-none w-[140px] h-[200px] md:w-[200px] md:h-[280px]"
+          loading="eager"
           style={{
+            position: 'absolute',
             bottom: '18%',
             right: '5%',
+            width: '200px',
+            height: '280px',
             background: 'transparent',
             zIndex: 3,
+            pointerEvents: 'none',
             transition: 'opacity 0.5s ease',
           }}
         />
