@@ -8,9 +8,9 @@ const BottleFitSection = () => {
 
   return (
     <section className="py-[var(--section-pad)]">
-      <div ref={refZoom} className="min-h-[50vh]" />
+      <div ref={refZoom} className="min-h-[30vh] md:min-h-[50vh]" />
 
-      <div ref={refDims} className="min-h-[40vh] flex items-center justify-center px-4">
+      <div ref={refDims} className="min-h-[30vh] md:min-h-[40vh] flex items-center justify-center px-4">
         <div
           className="flex flex-col items-center gap-6 rounded-2xl p-6 md:p-10"
           style={{
