@@ -47,17 +47,16 @@ const Index = () => {
           id="track-maxx-model"
           src="/track-maxx-band.glb"
           alt="Track-Maxx camera band"
-          camera-controls
           disable-zoom
-          auto-rotate
-          auto-rotate-delay="0"
-          rotation-per-second="8deg"
+          disable-pan
+          disable-tap
           environment-image="neutral"
           shadow-intensity="0.4"
           shadow-softness="0.8"
           exposure="1.1"
           interaction-prompt="none"
           camera-orbit="0deg 75deg 105%"
+          camera-target="auto auto auto"
           field-of-view="30deg"
           min-field-of-view="20deg"
           max-field-of-view="45deg"
