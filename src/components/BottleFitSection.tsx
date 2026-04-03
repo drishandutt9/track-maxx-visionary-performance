@@ -8,9 +8,9 @@ const BottleFitSection = () => {
 
   return (
     <section className="py-[var(--section-pad)]">
-      <div ref={refZoom} className="min-h-[50vh]" />
+      <div ref={refZoom} className="min-h-[30vh] md:min-h-[50vh]" />
 
-      <div ref={refDims} className="min-h-[40vh] flex items-center justify-center px-4">
+      <div ref={refDims} className="min-h-[30vh] md:min-h-[40vh] flex items-center justify-center px-4">
         <div
           className="flex flex-col items-center gap-6 rounded-2xl p-6 md:p-10"
           style={{
@@ -52,7 +52,7 @@ const BottleFitSection = () => {
         </div>
       </div>
 
-      <div ref={refInner} className="min-h-[50vh] flex items-center">
+      <div ref={refInner} className="min-h-[35vh] md:min-h-[50vh] flex items-center">
         <div className="mx-auto max-w-content px-[var(--gutter)] w-full">
           <div className="max-w-md mx-auto text-center md:ml-auto md:text-right">
             <div
@@ -79,7 +79,7 @@ const BottleFitSection = () => {
         </div>
       </div>
 
-      <div ref={refBeauty} className="min-h-[50vh] flex items-center justify-center">
+      <div ref={refBeauty} className="min-h-[35vh] md:min-h-[50vh] flex items-center justify-center">
         <div className="text-center max-w-3xl px-4">
           <div
             className="rounded-2xl p-6 md:p-12"

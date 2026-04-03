@@ -10,7 +10,7 @@ const ProblemSection = () => {
     );
 
   return (
-    <section ref={ref} className="min-h-[85vh] flex items-center justify-center">
+    <section ref={ref} className="min-h-[60vh] md:min-h-[85vh] flex items-center justify-center">
       <div className="mx-auto max-w-content px-[var(--gutter)] w-full">
         <div
           className="max-w-2xl mx-auto text-center rounded-2xl px-6 py-8 md:p-10 md:p-14"
