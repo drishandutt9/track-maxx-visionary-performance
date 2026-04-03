@@ -67,7 +67,7 @@ const ComparisonSection = () => {
           <div
             className="grid gap-0"
             style={{
-              gridTemplateColumns: '200px repeat(4, 1fr)',
+              gridTemplateColumns: 'minmax(100px, 140px) repeat(4, 1fr)',
               borderBottom: '1px solid var(--tm-border)',
             }}
           >
