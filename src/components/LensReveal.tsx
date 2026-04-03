@@ -14,7 +14,7 @@ const LensReveal = () => {
     <section ref={ref} className="min-h-[85vh] flex items-center">
       <div className="mx-auto max-w-content px-[var(--gutter)] w-full">
         <div
-          className="max-w-md ml-auto text-right rounded-2xl p-8"
+          className="max-w-md mx-auto text-center md:ml-auto md:text-right rounded-2xl p-6 md:p-8"
           style={{
             background: 'rgba(0,0,0,0.55)',
             backdropFilter: 'blur(16px)',
@@ -22,7 +22,7 @@ const LensReveal = () => {
             border: '1px solid rgba(255,255,255,0.06)',
           }}
         >
-          <div className="flex items-center justify-end gap-2 mb-3">
+          <div className="flex items-center justify-center md:justify-end gap-2 mb-3">
             <p className="font-mono-label anim-up" style={{ color: 'var(--tm-accent)' }}>
               150° Wide-Angle Vision
             </p>
@@ -45,8 +45,7 @@ const LensReveal = () => {
             your entire body from any angle.
           </p>
 
-          {/* Spec pills */}
-          <div className="flex flex-wrap justify-end gap-3">
+          <div className="flex flex-wrap justify-center md:justify-end gap-3">
             {specs.map((spec, i) => {
               const Icon = spec.icon;
               return (

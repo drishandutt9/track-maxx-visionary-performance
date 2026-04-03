@@ -6,9 +6,8 @@ const CTASection = () => {
   return (
     <section id="waitlist" ref={ref} className="py-[var(--section-pad)]">
       <div className="mx-auto max-w-content px-[var(--gutter)] flex justify-center">
-        {/* Pill-shaped footer container */}
         <div
-          className="relative w-full max-w-2xl text-center px-8 md:px-16 py-16 md:py-20 anim-fade"
+          className="relative w-full max-w-2xl text-center px-6 py-12 md:px-16 md:py-20 anim-fade"
           style={{
             background: 'rgba(0, 0, 0, 0.7)',
             border: '1px solid var(--tm-border)',
@@ -16,15 +15,14 @@ const CTASection = () => {
             backdropFilter: 'blur(16px)',
           }}
         >
-          {/* Gym context strip */}
           <div className="flex items-center justify-center gap-3 mb-8 anim-fade">
             {['/gym-squat.jpg', '/gym-mirror.jpg', '/gym-dumbbell.jpg'].map((src, i) => (
               <div
                 key={i}
                 className="overflow-hidden"
                 style={{
-                  width: '64px',
-                  height: '64px',
+                  width: '52px',
+                  height: '52px',
                   borderRadius: '12px',
                   border: '1px solid rgba(255,107,53,0.15)',
                 }}
@@ -41,7 +39,7 @@ const CTASection = () => {
             className="font-heading anim-up stagger-1 mb-6"
             style={{
               color: 'var(--text)',
-              fontSize: 'clamp(36px, 5vw, 64px)',
+              fontSize: 'clamp(28px, 5vw, 64px)',
               letterSpacing: '-0.03em',
               lineHeight: 0.95,
             }}
@@ -56,12 +54,12 @@ const CTASection = () => {
           <div className="anim-up stagger-2 mb-8">
             <a
               href="#"
-              className="inline-block px-10 py-4 rounded-full font-semibold transition-all hover:scale-105 active:scale-95"
+              className="inline-block px-8 md:px-10 py-3.5 md:py-4 rounded-full font-semibold transition-all hover:scale-105 active:scale-95"
               style={{
                 background: 'var(--tm-accent)',
                 color: '#000',
                 fontFamily: "'Fragment Mono', monospace",
-                fontSize: '14px',
+                fontSize: '13px',
                 letterSpacing: '0.08em',
                 textTransform: 'uppercase',
               }}
@@ -77,7 +75,6 @@ const CTASection = () => {
             First 500 sign-ups get founding member access.
           </p>
 
-          {/* Email input */}
           <div className="anim-up stagger-4 flex flex-col sm:flex-row items-center justify-center gap-3 max-w-sm mx-auto">
             <input
               type="email"

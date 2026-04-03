@@ -6,7 +6,6 @@ interface Step {
   num: string;
   title: string;
   desc: string;
-  align: 'left' | 'right' | 'center';
   icon: LucideIcon;
   image: string;
 }
@@ -16,7 +15,6 @@ const steps: Step[] = [
     num: '01',
     title: 'Wrap it.',
     desc: "Stretch the silicone band around any water bottle. 60mm to 100mm — it fits them all. IP67 rated. Drop it, splash it, sweat on it. It doesn't care.",
-    align: 'right',
     icon: Grip,
     image: '/gym-squat.jpg',
   },
@@ -24,7 +22,6 @@ const steps: Step[] = [
     num: '02',
     title: 'Place it.',
     desc: 'Set your bottle where you normally would — on the floor, on a bench, on a rack. The 150° wide-angle lens captures your entire body from any angle.',
-    align: 'left',
     icon: MapPin,
     image: '/gym-mirror.jpg',
   },
@@ -32,7 +29,6 @@ const steps: Step[] = [
     num: '03',
     title: 'Train.',
     desc: "That's it. Track-Maxx auto-detects your exercise, counts reps, measures time under tension, scores form in real time, and flags dangerous movement patterns. You never touch your phone.",
-    align: 'center',
     icon: Zap,
     image: '/gym-dumbbell.jpg',
   },
@@ -42,10 +38,10 @@ const HowItWorksSection = () => {
   const ref = useScrollReveal();
 
   return (
-    <section ref={ref} id="how-it-works" className="py-[120px]">
+    <section ref={ref} id="how-it-works" className="py-[80px] md:py-[120px]">
       <div className="mx-auto max-w-content px-[var(--gutter)]">
         <div
-          className="text-center mb-16 rounded-2xl p-8 mx-auto max-w-lg"
+          className="text-center mb-12 md:mb-16 rounded-2xl p-6 md:p-8 mx-auto max-w-lg"
           style={{
             background: 'rgba(0,0,0,0.45)',
             backdropFilter: 'blur(12px)',
@@ -68,12 +64,9 @@ const HowItWorksSection = () => {
           {steps.map((s, i) => {
             const Icon = s.icon;
             return (
-              <div
-                key={s.num}
-                className={`flex ${s.align === 'right' ? 'justify-end' : s.align === 'left' ? 'justify-start' : 'justify-center'}`}
-              >
+              <div key={s.num} className="flex justify-center">
                 <div
-                  className={`anim-up stagger-${i + 2} max-w-md rounded-2xl p-8`}
+                  className={`anim-up stagger-${i + 2} w-full max-w-md rounded-2xl p-6 md:p-8`}
                   style={{
                     background: 'rgba(0,0,0,0.55)',
                     backdropFilter: 'blur(16px)',
@@ -83,8 +76,8 @@ const HowItWorksSection = () => {
                 >
                   <div className="flex items-start justify-between mb-4">
                     <span
-                      className="font-mono-label"
-                      style={{ color: 'var(--tm-accent)', fontSize: '56px', lineHeight: 1 }}
+                      className="font-mono-label text-[40px] md:text-[56px]"
+                      style={{ color: 'var(--tm-accent)', lineHeight: 1 }}
                     >
                       {s.num}
                     </span>
@@ -103,8 +96,8 @@ const HowItWorksSection = () => {
                   </div>
 
                   <div
-                    className="overflow-hidden rounded-lg mb-4"
-                    style={{ width: '100%', maxWidth: '200px', aspectRatio: '3/4' }}
+                    className="overflow-hidden rounded-lg mb-4 max-w-[140px] md:max-w-[200px]"
+                    style={{ aspectRatio: '3/4' }}
                   >
                     <img
                       src={s.image}

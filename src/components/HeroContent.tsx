@@ -6,17 +6,15 @@ const HeroContent = () => {
   return (
     <section
       ref={ref}
-      className="relative min-h-screen flex flex-col items-center justify-end pb-16 pointer-events-none"
-      style={{ paddingTop: '58vh' }}
+      className="relative min-h-screen flex flex-col items-center justify-end pb-12 md:pb-16 pointer-events-none pt-[45vh] md:pt-[58vh]"
     >
       <div className="text-center px-4 pointer-events-auto max-w-3xl mx-auto">
 
-        {/* Heading */}
         <h1
           className="font-heading leading-[0.95] anim-up stagger-1 mb-6"
           style={{
             color: 'var(--text)',
-            fontSize: 'clamp(44px, 7vw, 90px)',
+            fontSize: 'clamp(32px, 7vw, 90px)',
             fontWeight: 600,
             letterSpacing: '-0.03em',
           }}
@@ -28,12 +26,11 @@ const HeroContent = () => {
           does too.
         </h1>
 
-        {/* Body */}
         <p
           className="anim-up stagger-2 mx-auto mb-8"
           style={{
             color: 'var(--text-secondary)',
-            fontSize: '18px',
+            fontSize: 'clamp(15px, 3.5vw, 18px)',
             maxWidth: '560px',
             lineHeight: 1.65,
           }}
@@ -42,8 +39,7 @@ const HeroContent = () => {
           your form, and spots injury risks before they happen — all through vision AI.
         </p>
 
-        {/* CTA */}
-        <div className="anim-up stagger-3 flex flex-col items-center gap-3">
+        <div className="anim-up stagger-3 flex flex-col items-center gap-3 text-center">
           <a
             href="#waitlist"
             className="inline-block px-8 py-3.5 rounded-full font-semibold transition-all hover:scale-105 active:scale-95"
@@ -61,7 +57,6 @@ const HeroContent = () => {
         </div>
       </div>
 
-      {/* Scroll indicator */}
       <div className="absolute bottom-6 flex flex-col items-center gap-1 opacity-50 anim-fade stagger-4 pointer-events-none">
         <span className="font-mono-label text-[11px] animate-bounce" style={{ color: 'var(--text-secondary)' }}>
           ↓

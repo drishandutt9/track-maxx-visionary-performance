@@ -49,7 +49,7 @@ const ComparisonSection = () => {
           The Competition
         </p>
         <h2
-          className="font-heading text-4xl md:text-5xl anim-up stagger-1 mb-14"
+          className="font-heading text-3xl md:text-5xl anim-up stagger-1 mb-10 md:mb-14"
           style={{ color: 'var(--text)', letterSpacing: '-0.03em' }}
         >
           See the difference.
@@ -65,17 +65,14 @@ const ComparisonSection = () => {
         }}>
           {/* Header row */}
           <div
-            className="grid gap-0"
-            style={{
-              gridTemplateColumns: '200px repeat(4, 1fr)',
-              borderBottom: '1px solid var(--tm-border)',
-            }}
+            className="grid gap-0 grid-cols-[120px_repeat(2,1fr)] md:grid-cols-[180px_repeat(4,1fr)]"
+            style={{ borderBottom: '1px solid var(--tm-border)' }}
           >
-            <div className="p-4" />
+            <div className="p-2.5 md:p-4" />
             {competitors.map((c) => (
               <div
                 key={c.name}
-                className={`p-4 font-mono-label text-center ${!c.showMobile ? 'hidden md:block' : ''}`}
+                className={`p-2.5 md:p-4 font-mono-label text-center text-[10px] md:text-xs ${!c.showMobile ? 'hidden md:block' : ''}`}
                 style={{
                   color: c.highlight ? 'var(--tm-accent)' : 'var(--text-tertiary)',
                   borderTop: c.highlight ? '3px solid var(--tm-accent)' : 'none',
@@ -90,19 +87,18 @@ const ComparisonSection = () => {
           {features.map((feature, fi) => (
             <div
               key={feature.name}
-              className="grid gap-0"
+              className="grid gap-0 grid-cols-[120px_repeat(2,1fr)] md:grid-cols-[180px_repeat(4,1fr)]"
               style={{
-                gridTemplateColumns: '200px repeat(4, 1fr)',
                 borderBottom: '1px solid var(--tm-border)',
                 background: fi % 2 === 0 ? 'transparent' : 'rgba(255,255,255,0.01)',
               }}
             >
               <div
-                className="p-4 text-sm font-medium flex items-center gap-2"
+                className="p-2.5 md:p-4 text-xs md:text-sm font-medium flex items-center gap-1.5 md:gap-2"
                 style={{ color: 'var(--text-secondary)' }}
               >
-                {(() => { const Icon = feature.icon; return <Icon size={15} style={{ color: 'var(--tm-accent)', opacity: 0.7 }} />; })()}
-                {feature.name}
+                {(() => { const Icon = feature.icon; return <Icon size={15} style={{ color: 'var(--tm-accent)', opacity: 0.7 }} className="hidden sm:block flex-shrink-0" />; })()}
+                <span className="leading-tight">{feature.name}</span>
               </div>
               {competitors.map((c) => {
                 const val = c.values[fi];
@@ -112,7 +108,7 @@ const ComparisonSection = () => {
                 return (
                   <div
                     key={c.name + feature.name}
-                    className={`p-4 text-sm text-center ${!c.showMobile ? 'hidden md:block' : ''}`}
+                    className={`p-2.5 md:p-4 text-xs md:text-sm text-center ${!c.showMobile ? 'hidden md:block' : ''}`}
                     style={{
                       color: isCheck && c.highlight
                         ? 'var(--tm-accent)'
