@@ -1,6 +1,11 @@
 import { useScrollReveal } from '@/hooks/useScrollReveal';
+import { ScanEye, Droplets, Feather } from 'lucide-react';
 
-const specs = ['150° FOV', 'IP67 Rated', '24g Weight'];
+const specs = [
+  { icon: ScanEye, num: '150°', label: 'FOV' },
+  { icon: Droplets, num: 'IP67', label: 'Rated' },
+  { icon: Feather, num: '24g', label: 'Weight' },
+];
 
 const LensReveal = () => {
   const ref = useScrollReveal();
@@ -17,9 +22,12 @@ const LensReveal = () => {
             border: '1px solid rgba(255,255,255,0.06)',
           }}
         >
-          <p className="font-mono-label mb-3 anim-up" style={{ color: 'var(--tm-accent)' }}>
-            150° Wide-Angle Vision
-          </p>
+          <div className="flex items-center justify-end gap-2 mb-3">
+            <p className="font-mono-label anim-up" style={{ color: 'var(--tm-accent)' }}>
+              150° Wide-Angle Vision
+            </p>
+            <ScanEye size={18} style={{ color: 'var(--tm-accent)' }} className="anim-up" />
+          </div>
           <h2
             className="font-heading text-3xl md:text-4xl lg:text-5xl anim-up stagger-1 mb-5"
             style={{ color: 'var(--text)', letterSpacing: '-0.03em' }}
@@ -40,20 +48,19 @@ const LensReveal = () => {
           {/* Spec pills */}
           <div className="flex flex-wrap justify-end gap-3">
             {specs.map((spec, i) => {
-              const parts = spec.split(' ');
-              const num = parts[0];
-              const label = parts.slice(1).join(' ');
+              const Icon = spec.icon;
               return (
                 <div
-                  key={spec}
+                  key={spec.num}
                   className={`anim-up stagger-${i + 3} inline-flex items-center gap-1.5 px-4 py-2 rounded-full`}
                   style={{ border: '1px solid var(--tm-border)', background: 'rgba(0,0,0,0.3)' }}
                 >
+                  <Icon size={15} style={{ color: 'var(--tm-accent)', opacity: 0.8 }} />
                   <span className="font-mono-label text-[12px]" style={{ color: 'var(--tm-accent)' }}>
-                    {num}
+                    {spec.num}
                   </span>
                   <span className="font-mono-label text-[12px]" style={{ color: 'var(--text-secondary)' }}>
-                    {label}
+                    {spec.label}
                   </span>
                 </div>
               );

@@ -1,4 +1,5 @@
 import { useScrollReveal } from '@/hooks/useScrollReveal';
+import { EyeOff, Eye } from 'lucide-react';
 
 const ProblemSection = () => {
   const ref = useScrollReveal();
@@ -20,9 +21,12 @@ const ProblemSection = () => {
             border: '1px solid rgba(255,255,255,0.06)',
           }}
         >
-          <p className="font-mono-label mb-4 anim-up" style={{ color: 'var(--tm-accent)' }}>
-            The Problem
-          </p>
+          <div className="flex items-center justify-center gap-2 mb-4">
+            <EyeOff size={18} style={{ color: 'var(--tm-accent)' }} className="anim-up" />
+            <p className="font-mono-label anim-up" style={{ color: 'var(--tm-accent)' }}>
+              The Problem
+            </p>
+          </div>
 
           <h2
             className="font-heading text-3xl md:text-5xl mb-8 anim-up stagger-1"
@@ -44,12 +48,15 @@ const ProblemSection = () => {
             ))}
           </div>
 
-          <p
-            className="text-xl md:text-2xl font-semibold anim-up stagger-3"
-            style={{ color: 'var(--tm-accent)' }}
-          >
-            They measure movement. Track-Maxx measures performance.
-          </p>
+          <div className="flex items-center justify-center gap-2">
+            <Eye size={20} style={{ color: 'var(--tm-accent)' }} className="anim-up stagger-3" />
+            <p
+              className="text-xl md:text-2xl font-semibold anim-up stagger-3"
+              style={{ color: 'var(--tm-accent)' }}
+            >
+              They measure movement. Track-Maxx measures performance.
+            </p>
+          </div>
         </div>
       </div>
     </section>
