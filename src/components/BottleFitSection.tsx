@@ -79,7 +79,7 @@ const BottleFitSection = () => {
         </div>
       </div>
 
-      <div ref={refBeauty} className="min-h-[50vh] flex items-center justify-center">
+      <div ref={refBeauty} className="min-h-[35vh] md:min-h-[50vh] flex items-center justify-center">
         <div className="text-center max-w-3xl px-4">
           <div
             className="rounded-2xl p-6 md:p-12"

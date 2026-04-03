@@ -60,7 +60,7 @@ const HowItWorksSection = () => {
           </h2>
         </div>
 
-        <div className="space-y-12">
+        <div className="space-y-6 md:space-y-12">
           {steps.map((s, i) => {
             const Icon = s.icon;
             return (

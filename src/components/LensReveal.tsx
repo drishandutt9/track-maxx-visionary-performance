@@ -11,7 +11,7 @@ const LensReveal = () => {
   const ref = useScrollReveal();
 
   return (
-    <section ref={ref} className="min-h-[85vh] flex items-center">
+    <section ref={ref} className="min-h-[60vh] md:min-h-[85vh] flex items-center">
       <div className="mx-auto max-w-content px-[var(--gutter)] w-full">
         <div
           className="max-w-md mx-auto text-center md:ml-auto md:text-right rounded-2xl p-6 md:p-8"

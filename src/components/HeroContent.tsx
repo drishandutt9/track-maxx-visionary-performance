@@ -6,7 +6,7 @@ const HeroContent = () => {
   return (
     <section
       ref={ref}
-      className="relative min-h-screen flex flex-col items-center justify-end pb-12 md:pb-16 pointer-events-none pt-[45vh] md:pt-[58vh]"
+      className="relative min-h-[85vh] md:min-h-screen flex flex-col items-center justify-end pb-12 md:pb-16 pointer-events-none pt-[45vh] md:pt-[58vh]"
     >
       <div className="text-center px-4 pointer-events-auto max-w-3xl mx-auto">
 

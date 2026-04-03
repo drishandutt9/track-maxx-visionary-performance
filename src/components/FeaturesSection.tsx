@@ -37,7 +37,7 @@ const FeaturesSection = () => {
   const ref = useScrollReveal();
 
   return (
-    <section ref={ref} id="features" className="py-[80px] md:py-[120px]">
+    <section ref={ref} id="features" className="py-[60px] md:py-[120px]">
       <div className="mx-auto max-w-content px-[var(--gutter)]">
         <div className="flex flex-col lg:flex-row gap-8 lg:gap-16">
           <div className="lg:w-[35%] lg:sticky lg:top-32 lg:self-start">
