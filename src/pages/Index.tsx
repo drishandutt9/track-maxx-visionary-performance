@@ -32,6 +32,16 @@ const Index = () => {
           style={{ boxShadow: '0 0 200px 60px rgba(255,107,53,0.06)', zIndex: 0 }}
         />
 
+        {/* Bottom vignette — clean transition from model to text */}
+        <div
+          className="absolute bottom-0 left-0 right-0 pointer-events-none"
+          style={{
+            height: '45%',
+            background: 'linear-gradient(to bottom, transparent 0%, rgba(0,0,0,0.6) 50%, rgba(0,0,0,0.95) 100%)',
+            zIndex: 2,
+          }}
+        />
+
         <model-viewer
           id="track-maxx-model"
           src="/track-maxx-band.glb"
@@ -42,11 +52,14 @@ const Index = () => {
           auto-rotate-delay="0"
           rotation-per-second="8deg"
           environment-image="neutral"
-          shadow-intensity="0.3"
-          shadow-softness="0.9"
-          exposure="1.2"
+          shadow-intensity="0.4"
+          shadow-softness="0.8"
+          exposure="1.1"
           interaction-prompt="none"
-          camera-orbit="0deg 75deg 2.5m"
+          camera-orbit="0deg 75deg 105%"
+          field-of-view="30deg"
+          min-field-of-view="20deg"
+          max-field-of-view="45deg"
           loading="lazy"
           style={{
             width: '100%',
