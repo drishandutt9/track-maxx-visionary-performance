@@ -74,7 +74,7 @@ const CTASection = () => {
             className="anim-up stagger-3 text-sm mb-8"
             style={{ color: 'var(--text-tertiary)' }}
           >
-            First 500 sign-ups get founding member pricing locked for life.
+            First 500 sign-ups get founding member access.
           </p>
 
           {/* Email input */}
