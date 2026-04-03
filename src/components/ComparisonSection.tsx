@@ -112,7 +112,7 @@ const ComparisonSection = () => {
                 return (
                   <div
                     key={c.name + feature.name}
-                    className={`p-4 text-sm text-center ${!c.showMobile ? 'hidden md:block' : ''}`}
+                    className={`p-3 md:p-4 text-xs md:text-sm text-center ${!c.showMobile ? 'hidden md:block' : ''}`}
                     style={{
                       color: isCheck && c.highlight
                         ? 'var(--tm-accent)'

@@ -33,7 +33,7 @@ const HeroContent = () => {
           className="anim-up stagger-2 mx-auto mb-8"
           style={{
             color: 'var(--text-secondary)',
-            fontSize: '18px',
+            fontSize: 'clamp(15px, 3.5vw, 18px)',
             maxWidth: '560px',
             lineHeight: 1.65,
           }}
