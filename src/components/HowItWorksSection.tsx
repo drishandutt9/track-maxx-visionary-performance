@@ -38,7 +38,7 @@ const HowItWorksSection = () => {
   const ref = useScrollReveal();
 
   return (
-    <section ref={ref} id="how-it-works" className="py-[80px] md:py-[120px]">
+    <section ref={ref} id="how-it-works" className="py-[60px] md:py-[120px]">
       <div className="mx-auto max-w-content px-[var(--gutter)]">
         <div
           className="text-center mb-12 md:mb-16 rounded-2xl p-6 md:p-8 mx-auto max-w-lg"
