@@ -10,7 +10,7 @@ const CTASection = () => {
         <div
           className="relative w-full max-w-2xl text-center px-8 md:px-16 py-16 md:py-20 anim-fade"
           style={{
-            background: 'var(--card-bg)',
+            background: 'rgba(0, 0, 0, 0.7)',
             border: '1px solid var(--tm-border)',
             borderRadius: '40px',
             backdropFilter: 'blur(16px)',

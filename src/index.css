@@ -211,6 +211,11 @@
 /* Model viewer custom */
 model-viewer {
   --poster-color: transparent;
+  --progress-bar-color: #FF6B35;
+  --progress-bar-height: 2px;
+}
+model-viewer::part(default-progress-bar) {
+  background: rgba(255, 107, 53, 0.3);
 }
 
 /* Marquee ticker */

@@ -54,7 +54,14 @@ const ComparisonSection = () => {
           See the difference.
         </h2>
 
-        <div className="anim-fade stagger-2 overflow-x-auto" style={{ backdropFilter: 'blur(16px)' }}>
+        <div className="anim-fade stagger-2 overflow-x-auto" style={{
+          backdropFilter: 'blur(16px)',
+          WebkitBackdropFilter: 'blur(16px)',
+          background: 'rgba(0, 0, 0, 0.65)',
+          borderRadius: '8px',
+          border: '1px solid rgba(255,255,255,0.06)',
+          padding: '4px',
+        }}>
           {/* Header row */}
           <div
             className="grid gap-0"
