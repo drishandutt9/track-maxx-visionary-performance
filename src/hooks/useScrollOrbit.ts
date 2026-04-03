@@ -270,6 +270,10 @@ const useScrollOrbit = () => {
   const glowRef = useRef<HTMLDivElement>(null);
   const modelWrapperRef = useRef<HTMLDivElement>(null);
   const anchorsRef = useRef<ScrollAnchors>(DEFAULT_SCROLL_ANCHORS);
+  const idleAngleRef = useRef(0);
+  const lastTimeRef = useRef(0);
+  const rafRef = useRef<number>(0);
+  const scrollProgressRef = useRef(0);
 
   useEffect(() => {
     const container = containerRef.current;
@@ -287,6 +291,29 @@ const useScrollOrbit = () => {
     window.addEventListener('resize', updateAnchors);
     ScrollTrigger.addEventListener('refreshInit', handleRefresh);
 
+    // Idle rotation loop — spins the band when near top of page
+    const animateIdle = (time: number) => {
+      if (lastTimeRef.current === 0) lastTimeRef.current = time;
+      const dt = (time - lastTimeRef.current) / 1000;
+      lastTimeRef.current = time;
+
+      const progress = scrollProgressRef.current;
+      // Only spin when in the first 15% of the page (hero area)
+      if (progress < 0.15) {
+        const speed = 30; // degrees per second
+        idleAngleRef.current = (idleAngleRef.current + speed * dt) % 360;
+        const bandEl = document.getElementById('track-maxx-model') as HTMLElement | null;
+        if (bandEl && progress < 0.01) {
+          // At very top, use idle rotation directly
+          bandEl.setAttribute('camera-orbit', `${idleAngleRef.current.toFixed(1)}deg 75deg 105%`);
+          bandEl.setAttribute('field-of-view', '30deg');
+        }
+      }
+
+      rafRef.current = requestAnimationFrame(animateIdle);
+    };
+    rafRef.current = requestAnimationFrame(animateIdle);
+
     const ctx = gsap.context(() => {
       ScrollTrigger.create({
         trigger: container,
@@ -294,18 +321,22 @@ const useScrollOrbit = () => {
         end: 'bottom bottom',
         scrub: 1,
         onUpdate: (self) => {
+          scrollProgressRef.current = self.progress;
           const bandEl = document.getElementById('track-maxx-model') as HTMLElement | null;
           const bottleEl = document.getElementById('track-maxx-bottle') as HTMLElement | null;
           const anchors = anchorsRef.current;
           const { bandOpacity, bottleOpacity } = getModelVisibility(self.progress, anchors);
 
           if (bandEl) {
-            const { orbit, fov } = interpolateKeyframes(
-              BAND_KEYFRAMES,
-              getBandTimelineProgress(self.progress, anchors)
-            );
-            bandEl.setAttribute('camera-orbit', orbit);
-            bandEl.setAttribute('field-of-view', fov);
+            // Skip GSAP orbit when idle rotation is handling it
+            if (self.progress >= 0.01) {
+              const { orbit, fov } = interpolateKeyframes(
+                BAND_KEYFRAMES,
+                getBandTimelineProgress(self.progress, anchors)
+              );
+              bandEl.setAttribute('camera-orbit', orbit);
+              bandEl.setAttribute('field-of-view', fov);
+            }
             bandEl.style.opacity = String(bandOpacity);
             bandEl.style.pointerEvents = bandOpacity > 0.3 ? 'auto' : 'none';
           }
@@ -354,6 +385,7 @@ const useScrollOrbit = () => {
     return () => {
       window.removeEventListener('resize', updateAnchors);
       ScrollTrigger.removeEventListener('refreshInit', handleRefresh);
+      cancelAnimationFrame(rafRef.current);
       ctx.revert();
     };
   }, []);
