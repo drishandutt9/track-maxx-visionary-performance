@@ -12,7 +12,7 @@ const Navbar = () => {
       </div>
 
       <div className="hidden md:flex items-center gap-8">
-        {['Features', 'How It Works', 'Pricing'].map((link) => (
+        {['Features', 'How It Works'].map((link) => (
           <a
             key={link}
             href={`#${link.toLowerCase().replace(/\s+/g, '-')}`}

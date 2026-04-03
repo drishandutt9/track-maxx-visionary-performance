@@ -56,7 +56,7 @@ const HeroContent = () => {
               textTransform: 'uppercase',
             }}
           >
-            Join the Waitlist — Early Access £69
+            Join the Waitlist
           </a>
         </div>
       </div>

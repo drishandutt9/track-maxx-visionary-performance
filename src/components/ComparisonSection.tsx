@@ -1,5 +1,5 @@
 import { useScrollReveal } from '@/hooks/useScrollReveal';
-import { IterationCcw, Target, Scale, Gauge, Timer, MapPin, CreditCard, Tag } from 'lucide-react';
+import { IterationCcw, Target, Scale, Gauge, Timer, MapPin, CreditCard } from 'lucide-react';
 import type { LucideIcon } from 'lucide-react';
 
 const features: { name: string; icon: LucideIcon }[] = [
@@ -10,31 +10,30 @@ const features: { name: string; icon: LucideIcon }[] = [
   { name: 'Time under tension', icon: Timer },
   { name: 'Works at ANY gym', icon: MapPin },
   { name: 'No subscription', icon: CreditCard },
-  { name: 'Price', icon: Tag },
 ];
 
 const competitors = [
   {
     name: 'Track-Maxx',
-    values: ['✓ 50+ exercises', '✓ Real-time', '✓', '✓', '✓ Per-phase', '✓', '✓ Core free', '£99'],
+    values: ['✓ 50+ exercises', '✓ Real-time', '✓', '✓', '✓ Per-phase', '✓', '✓ Core free'],
     highlight: true,
     showMobile: true,
   },
   {
     name: 'Apple Watch',
-    values: ['~6 exercises', '✗', '✗', '✗', '✗', '✓', '✓', '£399+'],
+    values: ['~6 exercises', '✗', '✗', '✗', '✗', '✓', '✓'],
     highlight: false,
     showMobile: true,
   },
   {
     name: 'Whoop',
-    values: ['✗', '✗', '✗', '✗', '✗', '✓', '✗ £24/mo', '£24/mo'],
+    values: ['✗', '✗', '✗', '✗', '✗', '✓', '✗ £24/mo'],
     highlight: false,
     showMobile: false,
   },
   {
     name: 'Tempo',
-    values: ['Limited', 'Home only', '✗', '✗', 'Total only', '✗ Home only', '✗ £39/mo', '£400–2500'],
+    values: ['Limited', 'Home only', '✗', '✗', 'Total only', '✗ Home only', '✗ £39/mo'],
     highlight: false,
     showMobile: false,
   },
@@ -109,7 +108,6 @@ const ComparisonSection = () => {
                 const val = c.values[fi];
                 const isCheck = val.startsWith('✓');
                 const isCross = val.startsWith('✗');
-                const isPrice = feature.name === 'Price' && c.highlight;
 
                 return (
                   <div
@@ -123,9 +121,6 @@ const ComparisonSection = () => {
                         : c.highlight
                         ? 'var(--text)'
                         : 'var(--text-tertiary)',
-                      fontSize: isPrice ? '24px' : undefined,
-                      fontWeight: isPrice ? 700 : undefined,
-                      fontFamily: isPrice ? "'Instrument Sans', system-ui" : undefined,
                     }}
                   >
                     {val}
