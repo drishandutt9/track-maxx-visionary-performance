@@ -98,7 +98,7 @@ const ComparisonSection = () => {
               }}
             >
               <div
-                className="p-4 text-sm font-medium flex items-center gap-2"
+                className="p-3 md:p-4 text-xs md:text-sm font-medium flex items-center gap-2"
                 style={{ color: 'var(--text-secondary)' }}
               >
                 {(() => { const Icon = feature.icon; return <Icon size={15} style={{ color: 'var(--tm-accent)', opacity: 0.7 }} />; })()}
