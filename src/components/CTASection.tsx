@@ -66,7 +66,7 @@ const CTASection = () => {
                 textTransform: 'uppercase',
               }}
             >
-              Join the Waitlist — £69 Early Access
+              Join the Waitlist
             </a>
           </div>
 
