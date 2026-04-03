@@ -10,7 +10,6 @@ const features: { name: string; icon: LucideIcon }[] = [
   { name: 'Time under tension', icon: Timer },
   { name: 'Works at ANY gym', icon: MapPin },
   { name: 'No subscription', icon: CreditCard },
-  { name: 'Price', icon: Tag },
 ];
 
 const competitors = [
