@@ -46,6 +46,7 @@ const Index = () => {
           exposure="1.2"
           interaction-prompt="none"
           camera-orbit="0deg 75deg 2.5m"
+          loading="lazy"
           style={{
             width: '100%',
             height: '100%',
