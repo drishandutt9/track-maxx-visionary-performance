@@ -115,8 +115,8 @@ const Index = () => {
           shadow-intensity="0.3"
           exposure="1.1"
           interaction-prompt="none"
-          camera-orbit="20deg 70deg 2.5m"
-          field-of-view="45deg"
+          camera-orbit="20deg 70deg 6m"
+          field-of-view="50deg"
           disable-zoom
           loading="eager"
           style={{
