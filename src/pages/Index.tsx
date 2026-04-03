@@ -4,6 +4,7 @@ import LensReveal from '@/components/LensReveal';
 import ProblemSection from '@/components/ProblemSection';
 import HowItWorksSection from '@/components/HowItWorksSection';
 import FeaturesSection from '@/components/FeaturesSection';
+import MarqueeTicker from '@/components/MarqueeTicker';
 import BottleFitSection from '@/components/BottleFitSection';
 import ComparisonSection from '@/components/ComparisonSection';
 import PricingSection from '@/components/PricingSection';
