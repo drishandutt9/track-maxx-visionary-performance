@@ -16,21 +16,25 @@ const competitors = [
     name: 'Track-Maxx',
     values: ['✓ 50+ exercises', '✓ Real-time', '✓', '✓', '✓ Per-phase', '✓', '✓ Core free', '£99'],
     highlight: true,
+    showMobile: true,
   },
   {
     name: 'Apple Watch',
     values: ['~6 exercises', '✗', '✗', '✗', '✗', '✓', '✓', '£399+'],
     highlight: false,
+    showMobile: true,
   },
   {
     name: 'Whoop',
     values: ['✗', '✗', '✗', '✗', '✗', '✓', '✗ £24/mo', '£24/mo'],
     highlight: false,
+    showMobile: false,
   },
   {
     name: 'Tempo',
     values: ['Limited', 'Home only', '✗', '✗', 'Total only', '✗ Home only', '✗ £39/mo', '£400–2500'],
     highlight: false,
+    showMobile: false,
   },
 ];
 
@@ -63,7 +67,7 @@ const ComparisonSection = () => {
             {competitors.map((c) => (
               <div
                 key={c.name}
-                className="p-4 font-mono-label text-center"
+                className={`p-4 font-mono-label text-center ${!c.showMobile ? 'hidden md:block' : ''}`}
                 style={{
                   color: c.highlight ? 'var(--tm-accent)' : 'var(--text-tertiary)',
                   borderTop: c.highlight ? '3px solid var(--tm-accent)' : 'none',
@@ -100,7 +104,7 @@ const ComparisonSection = () => {
                 return (
                   <div
                     key={c.name + feature}
-                    className="p-4 text-sm text-center"
+                    className={`p-4 text-sm text-center ${!c.showMobile ? 'hidden md:block' : ''}`}
                     style={{
                       color: isCheck && c.highlight
                         ? 'var(--tm-accent)'
