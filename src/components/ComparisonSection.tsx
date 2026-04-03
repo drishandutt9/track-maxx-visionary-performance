@@ -1,14 +1,16 @@
 import { useScrollReveal } from '@/hooks/useScrollReveal';
+import { IterationCcw, Target, Scale, Gauge, Timer, MapPin, CreditCard, Tag } from 'lucide-react';
+import type { LucideIcon } from 'lucide-react';
 
-const features = [
-  'Auto rep counting',
-  'Form quality score',
-  'Asymmetry detection',
-  'Velocity tracking',
-  'Time under tension',
-  'Works at ANY gym',
-  'No subscription',
-  'Price',
+const features: { name: string; icon: LucideIcon }[] = [
+  { name: 'Auto rep counting', icon: IterationCcw },
+  { name: 'Form quality score', icon: Target },
+  { name: 'Asymmetry detection', icon: Scale },
+  { name: 'Velocity tracking', icon: Gauge },
+  { name: 'Time under tension', icon: Timer },
+  { name: 'Works at ANY gym', icon: MapPin },
+  { name: 'No subscription', icon: CreditCard },
+  { name: 'Price', icon: Tag },
 ];
 
 const competitors = [
@@ -66,7 +68,7 @@ const ComparisonSection = () => {
           <div
             className="grid gap-0"
             style={{
-              gridTemplateColumns: '180px repeat(4, 1fr)',
+              gridTemplateColumns: '200px repeat(4, 1fr)',
               borderBottom: '1px solid var(--tm-border)',
             }}
           >
@@ -88,29 +90,30 @@ const ComparisonSection = () => {
           {/* Data rows */}
           {features.map((feature, fi) => (
             <div
-              key={feature}
+              key={feature.name}
               className="grid gap-0"
               style={{
-                gridTemplateColumns: '180px repeat(4, 1fr)',
+                gridTemplateColumns: '200px repeat(4, 1fr)',
                 borderBottom: '1px solid var(--tm-border)',
                 background: fi % 2 === 0 ? 'transparent' : 'rgba(255,255,255,0.01)',
               }}
             >
               <div
-                className="p-4 text-sm font-medium"
+                className="p-4 text-sm font-medium flex items-center gap-2"
                 style={{ color: 'var(--text-secondary)' }}
               >
-                {feature}
+                {(() => { const Icon = feature.icon; return <Icon size={15} style={{ color: 'var(--tm-accent)', opacity: 0.7 }} />; })()}
+                {feature.name}
               </div>
               {competitors.map((c) => {
                 const val = c.values[fi];
                 const isCheck = val.startsWith('✓');
                 const isCross = val.startsWith('✗');
-                const isPrice = feature === 'Price' && c.highlight;
+                const isPrice = feature.name === 'Price' && c.highlight;
 
                 return (
                   <div
-                    key={c.name + feature}
+                    key={c.name + feature.name}
                     className={`p-4 text-sm text-center ${!c.showMobile ? 'hidden md:block' : ''}`}
                     style={{
                       color: isCheck && c.highlight

@@ -1,4 +1,5 @@
 import { useScrollReveal } from '@/hooks/useScrollReveal';
+import { Check } from 'lucide-react';
 
 const plans = [
   {
@@ -94,7 +95,7 @@ const PricingSection = () => {
               <ul className="space-y-3 mb-8 flex-1">
                 {plan.features.map((f) => (
                   <li key={f} className="flex items-start gap-2 text-sm" style={{ color: 'var(--text-secondary)' }}>
-                    <span style={{ color: 'var(--tm-accent)' }}>✓</span>
+                    <Check size={15} style={{ color: 'var(--tm-accent)', marginTop: 2, flexShrink: 0 }} />
                     {f}
                   </li>
                 ))}
