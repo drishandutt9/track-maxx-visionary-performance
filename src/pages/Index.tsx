@@ -75,6 +75,9 @@ const Index = () => {
         {/* S5: Features 58%–72% */}
         <FeaturesSection />
 
+        {/* Tech Marquee Ticker */}
+        <MarqueeTicker />
+
         {/* S6: Bottle Fit 72%–82% */}
         <BottleFitSection />
 
