@@ -7,7 +7,7 @@ const HeroContent = () => {
     <section
       ref={ref}
       className="relative min-h-screen flex flex-col items-center justify-end pb-16 pointer-events-none"
-      style={{ paddingTop: '58vh' }}
+      style={{ paddingTop: 'clamp(45vh, 55vh, 58vh)' }}
     >
       <div className="text-center px-4 pointer-events-auto max-w-3xl mx-auto">
 
