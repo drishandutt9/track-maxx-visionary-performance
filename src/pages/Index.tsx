@@ -1,3 +1,4 @@
+// Track-Maxx landing page
 import Navbar from '@/components/Navbar';
 import HeroContent from '@/components/HeroContent';
 import LensReveal from '@/components/LensReveal';
