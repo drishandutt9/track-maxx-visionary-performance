@@ -16,18 +16,23 @@ const ComparisonSection = () => {
     <section
       id="pricing"
       ref={ref}
-      className="relative py-[var(--section-pad)]"
-      style={{ background: 'var(--bg-section)' }}
+      className="py-[var(--section-pad)]"
     >
       <div className="mx-auto max-w-content px-[var(--gutter)]">
         <p className="font-mono-label anim-up mb-4" style={{ color: 'var(--tm-accent)' }}>
           Why Track-Maxx
         </p>
-        <h2 className="font-heading text-4xl md:text-5xl anim-up stagger-1 mb-14" style={{ color: 'var(--text)' }}>
+        <h2
+          className="font-heading text-4xl md:text-5xl anim-up stagger-1 mb-14"
+          style={{ color: 'var(--text)' }}
+        >
           vs. Everything Else
         </h2>
 
-        <div className="bracket-card overflow-hidden anim-fade stagger-2">
+        <div
+          className="bracket-card overflow-hidden anim-fade stagger-2"
+          style={{ backdropFilter: 'blur(12px)' }}
+        >
           <table className="w-full text-left">
             <thead>
               <tr style={{ borderBottom: '1px solid var(--tm-border)' }}>

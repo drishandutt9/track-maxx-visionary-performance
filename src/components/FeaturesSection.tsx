@@ -40,14 +40,16 @@ const FeaturesSection = () => {
     <section
       id="features"
       ref={ref}
-      className="relative py-[var(--section-pad)]"
-      style={{ background: 'var(--bg-section)' }}
+      className="py-[var(--section-pad)]"
     >
       <div className="mx-auto max-w-content px-[var(--gutter)]">
         <p className="font-mono-label anim-up mb-4" style={{ color: 'var(--tm-accent)' }}>
           What It Tracks
         </p>
-        <h2 className="font-heading text-4xl md:text-5xl lg:text-6xl anim-up stagger-1 mb-16" style={{ color: 'var(--text)' }}>
+        <h2
+          className="font-heading text-4xl md:text-5xl lg:text-6xl anim-up stagger-1 mb-16"
+          style={{ color: 'var(--text)' }}
+        >
           Six metrics.
           <br />
           Zero wearables.
@@ -58,6 +60,7 @@ const FeaturesSection = () => {
             <div
               key={f.label}
               className={`bracket-card p-8 anim-3d stagger-${Math.min(i + 1, 5)}`}
+              style={{ backdropFilter: 'blur(12px)' }}
             >
               <span
                 className="font-heading text-4xl md:text-5xl block mb-1"
