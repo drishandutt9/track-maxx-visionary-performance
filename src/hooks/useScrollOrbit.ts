@@ -329,6 +329,19 @@ const useScrollOrbit = () => {
           if (modelWrapperRef.current) {
             modelWrapperRef.current.style.opacity = String(getWrapperOpacity(self.progress, anchors));
           }
+
+          // Fade out the hero bottle preview — visible at 0%, gone by 8% scroll
+          const bottlePreview = document.getElementById('track-maxx-bottle-preview') as HTMLElement | null;
+          if (bottlePreview) {
+            if (self.progress < 0.04) {
+              bottlePreview.style.opacity = '1';
+            } else if (self.progress < 0.08) {
+              const fadeT = (self.progress - 0.04) / 0.04;
+              bottlePreview.style.opacity = String(1 - fadeT);
+            } else {
+              bottlePreview.style.opacity = '0';
+            }
+          }
         },
       });
     }, container);
