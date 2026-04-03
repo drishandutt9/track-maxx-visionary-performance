@@ -52,7 +52,7 @@ const BottleFitSection = () => {
         </div>
       </div>
 
-      <div ref={refInner} className="min-h-[50vh] flex items-center">
+      <div ref={refInner} className="min-h-[35vh] md:min-h-[50vh] flex items-center">
         <div className="mx-auto max-w-content px-[var(--gutter)] w-full">
           <div className="max-w-md mx-auto text-center md:ml-auto md:text-right">
             <div
