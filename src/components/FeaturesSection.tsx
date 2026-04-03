@@ -28,8 +28,8 @@ const features = [
   },
   {
     num: '06',
-    title: 'AI Voice Coach',
-    desc: '"Knees out!" "Chest up!" "Slow the eccentric!" Live audio cues from real-time form analysis. Like having a PT behind you.',
+    title: 'Post-Workout Debrief',
+    desc: 'AI-generated session summary with specific coaching notes: "Your squat depth improved 12% vs last week but your bench press velocity dropped — consider deloading."',
   },
 ];
 

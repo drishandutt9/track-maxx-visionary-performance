@@ -15,25 +15,25 @@ const features: { name: string; icon: LucideIcon }[] = [
 const competitors = [
   {
     name: 'Track-Maxx',
-    values: ['✓ 50+ exercises', '✓ Real-time', '✓', '✓', '✓ Per-phase', '✓', '✓ Core free', '£99'],
+    values: ['✓ 50+ exercises', '✓ Real-time', '✓', '✓', '✓ Per-phase', '✓', '✓ Core free'],
     highlight: true,
     showMobile: true,
   },
   {
     name: 'Apple Watch',
-    values: ['~6 exercises', '✗', '✗', '✗', '✗', '✓', '✓', '£399+'],
+    values: ['~6 exercises', '✗', '✗', '✗', '✗', '✓', '✓'],
     highlight: false,
     showMobile: true,
   },
   {
     name: 'Whoop',
-    values: ['✗', '✗', '✗', '✗', '✗', '✓', '✗ £24/mo', '£24/mo'],
+    values: ['✗', '✗', '✗', '✗', '✗', '✓', '✗ £24/mo'],
     highlight: false,
     showMobile: false,
   },
   {
     name: 'Tempo',
-    values: ['Limited', 'Home only', '✗', '✗', 'Total only', '✗ Home only', '✗ £39/mo', '£400–2500'],
+    values: ['Limited', 'Home only', '✗', '✗', 'Total only', '✗ Home only', '✗ £39/mo'],
     highlight: false,
     showMobile: false,
   },
