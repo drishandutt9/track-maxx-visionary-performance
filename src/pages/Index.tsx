@@ -32,7 +32,7 @@ const Index = () => {
           style={{ boxShadow: '0 0 200px 60px rgba(255,107,53,0.06)', zIndex: 0 }}
         />
 
-        {/* Bottom vignette — clean transition from model to text */}
+        {/* Bottom vignette */}
         <div
           className="absolute bottom-0 left-0 right-0 pointer-events-none"
           style={{
@@ -42,6 +42,7 @@ const Index = () => {
           }}
         />
 
+        {/* MODEL A: Standalone band */}
         <model-viewer
           id="track-maxx-model"
           src="/track-maxx-band.glb"
@@ -65,44 +66,56 @@ const Index = () => {
             width: '100%',
             height: '100%',
             background: 'transparent',
-            position: 'relative',
+            position: 'absolute',
+            top: 0,
+            left: 0,
             zIndex: 1,
+          }}
+        />
+
+        {/* MODEL B: Band on bottle (fades in during "Place it") */}
+        <model-viewer
+          id="track-maxx-bottle"
+          src="/bottle-band.glb"
+          alt="Track-Maxx band on water bottle"
+          camera-controls
+          disable-zoom
+          environment-image="neutral"
+          shadow-intensity="0.4"
+          shadow-softness="0.8"
+          exposure="1.1"
+          interaction-prompt="none"
+          camera-orbit="0deg 80deg 110%"
+          field-of-view="30deg"
+          min-field-of-view="20deg"
+          max-field-of-view="45deg"
+          loading="lazy"
+          style={{
+            width: '100%',
+            height: '100%',
+            background: 'transparent',
+            position: 'absolute',
+            top: 0,
+            left: 0,
+            zIndex: 1,
+            opacity: 0,
+            pointerEvents: 'none',
           }}
         />
       </div>
 
-      {/* Scrolling content layer — 9 sections, ~9x viewport height */}
+      {/* Scrolling content layer */}
       <div className="relative" style={{ zIndex: 2 }}>
-        {/* S1: Hero 0%–15% */}
         <HeroContent />
-
-        {/* S2: Lens Reveal 15%–28% */}
         <LensReveal />
-
-        {/* S3: Problem 28%–40% */}
         <ProblemSection />
-
-        {/* S4: How It Works 40%–58% */}
         <HowItWorksSection />
-
-        {/* S5: Features 58%–72% */}
         <FeaturesSection />
-
-        {/* Tech Marquee Ticker */}
         <MarqueeTicker />
-
-        {/* S6: Bottle Fit 72%–82% */}
         <BottleFitSection />
-
-        {/* S7: Comparison 82%–90% */}
         <ComparisonSection />
-
-        {/* S8: Pricing 88%–93% */}
         <PricingSection />
-
-        {/* S9: Final CTA 93%–100% */}
         <CTASection />
-
         <Footer />
       </div>
     </div>

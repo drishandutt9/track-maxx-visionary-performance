@@ -12,23 +12,34 @@ interface OrbitKeyframe {
   fov: number;
 }
 
-const ORBIT_KEYFRAMES: OrbitKeyframe[] = [
+// Keyframes for the standalone BAND model
+const BAND_KEYFRAMES: OrbitKeyframe[] = [
   { progress: 0.00, theta: 0,   phi: 75, radius: 105, fov: 30 },
   { progress: 0.15, theta: 45,  phi: 80, radius: 80,  fov: 28 },
   { progress: 0.28, theta: 0,   phi: 90, radius: 120, fov: 32 },
   { progress: 0.40, theta: 0,   phi: 90, radius: 120, fov: 32 },
   { progress: 0.42, theta: 90,  phi: 85, radius: 95,  fov: 30 },
-  { progress: 0.48, theta: 200, phi: 70, radius: 95,  fov: 30 },
-  { progress: 0.55, theta: 315, phi: 75, radius: 90,  fov: 28 },
-  { progress: 0.58, theta: 30,  phi: 80, radius: 110, fov: 32 },
-  { progress: 0.72, theta: 0,   phi: 90, radius: 70,  fov: 25 },
-  { progress: 0.75, theta: 0,   phi: 90, radius: 70,  fov: 25 },
-  { progress: 0.78, theta: 180, phi: 85, radius: 75,  fov: 26 },
-  { progress: 0.80, theta: 0,   phi: 75, radius: 120, fov: 32 },
-  { progress: 0.82, theta: 0,   phi: 75, radius: 120, fov: 32 },
+  { progress: 0.46, theta: 150, phi: 80, radius: 90,  fov: 28 },
+  { progress: 0.49, theta: 180, phi: 80, radius: 90,  fov: 28 },
+  { progress: 0.84, theta: 0,   phi: 90, radius: 150, fov: 38 },
   { progress: 0.88, theta: 0,   phi: 90, radius: 150, fov: 38 },
   { progress: 0.93, theta: 0,   phi: 90, radius: 150, fov: 38 },
   { progress: 1.00, theta: 20,  phi: 78, radius: 105, fov: 30 },
+];
+
+// Keyframes for the BOTTLE model
+const BOTTLE_KEYFRAMES: OrbitKeyframe[] = [
+  { progress: 0.46, theta: 0,   phi: 80, radius: 110, fov: 30 },
+  { progress: 0.49, theta: 0,   phi: 80, radius: 105, fov: 30 },
+  { progress: 0.55, theta: 315, phi: 75, radius: 95,  fov: 28 },
+  { progress: 0.58, theta: 30,  phi: 80, radius: 110, fov: 32 },
+  { progress: 0.65, theta: 60,  phi: 78, radius: 105, fov: 30 },
+  { progress: 0.72, theta: 0,   phi: 85, radius: 75,  fov: 25 },
+  { progress: 0.75, theta: 0,   phi: 85, radius: 75,  fov: 25 },
+  { progress: 0.78, theta: 180, phi: 80, radius: 80,  fov: 26 },
+  { progress: 0.80, theta: 0,   phi: 75, radius: 110, fov: 30 },
+  { progress: 0.82, theta: 0,   phi: 75, radius: 110, fov: 30 },
+  { progress: 0.85, theta: 0,   phi: 75, radius: 120, fov: 32 },
 ];
 
 function lerp(a: number, b: number, t: number) {
@@ -40,14 +51,27 @@ function lerpAngle(a: number, b: number, t: number) {
   return a + diff * t;
 }
 
-function interpolateOrbit(progress: number): { orbit: string; fov: string } {
+function interpolateKeyframes(
+  keyframes: OrbitKeyframe[],
+  progress: number
+): { orbit: string; fov: string } {
   const p = Math.max(0, Math.min(1, progress));
-  let i = 0;
-  for (; i < ORBIT_KEYFRAMES.length - 1; i++) {
-    if (ORBIT_KEYFRAMES[i + 1].progress >= p) break;
+
+  if (p <= keyframes[0].progress) {
+    const k = keyframes[0];
+    return { orbit: `${k.theta}deg ${k.phi}deg ${k.radius}%`, fov: `${k.fov}deg` };
   }
-  const from = ORBIT_KEYFRAMES[i];
-  const to = ORBIT_KEYFRAMES[Math.min(i + 1, ORBIT_KEYFRAMES.length - 1)];
+  if (p >= keyframes[keyframes.length - 1].progress) {
+    const k = keyframes[keyframes.length - 1];
+    return { orbit: `${k.theta}deg ${k.phi}deg ${k.radius}%`, fov: `${k.fov}deg` };
+  }
+
+  let i = 0;
+  for (; i < keyframes.length - 1; i++) {
+    if (keyframes[i + 1].progress >= p) break;
+  }
+  const from = keyframes[i];
+  const to = keyframes[Math.min(i + 1, keyframes.length - 1)];
   const range = to.progress - from.progress;
   const t = range === 0 ? 0 : (p - from.progress) / range;
   const eased = t * t * (3 - 2 * t);
@@ -63,14 +87,36 @@ function interpolateOrbit(progress: number): { orbit: string; fov: string } {
   };
 }
 
+function getModelVisibility(progress: number): { bandOpacity: number; bottleOpacity: number } {
+  if (progress < 0.46) {
+    return { bandOpacity: 1, bottleOpacity: 0 };
+  }
+  if (progress >= 0.46 && progress < 0.49) {
+    const t = (progress - 0.46) / 0.03;
+    const eased = t * t * (3 - 2 * t);
+    return { bandOpacity: 1 - eased, bottleOpacity: eased };
+  }
+  if (progress >= 0.49 && progress < 0.82) {
+    return { bandOpacity: 0, bottleOpacity: 1 };
+  }
+  if (progress >= 0.82 && progress < 0.85) {
+    const t = (progress - 0.82) / 0.03;
+    const eased = t * t * (3 - 2 * t);
+    return { bandOpacity: eased, bottleOpacity: 1 - eased };
+  }
+  return { bandOpacity: 1, bottleOpacity: 0 };
+}
+
 function getGlowIntensity(progress: number): number {
   const peaks = [
     { p: 0.15, intensity: 0.15 },
     { p: 0.28, intensity: 0.04 },
+    { p: 0.48, intensity: 0.18 },
     { p: 0.55, intensity: 0.10 },
     { p: 0.72, intensity: 0.22 },
     { p: 0.75, intensity: 0.25 },
     { p: 0.78, intensity: 0.15 },
+    { p: 0.83, intensity: 0.16 },
     { p: 0.88, intensity: 0.03 },
     { p: 1.00, intensity: 0.12 },
   ];
@@ -85,11 +131,9 @@ function getGlowIntensity(progress: number): number {
   return intensity;
 }
 
-function getModelOpacity(progress: number): number {
-  if (progress >= 0.82 && progress <= 0.93) {
-    const t = (progress - 0.82) / 0.06;
-    const dimAmount = Math.min(1, t);
-    return lerp(1, 0.35, dimAmount > 1 ? 2 - dimAmount : dimAmount);
+function getWrapperOpacity(progress: number): number {
+  if (progress >= 0.86 && progress <= 0.93) {
+    return 0.35;
   }
   if (progress >= 0.30 && progress <= 0.38) {
     return 0.65;
@@ -113,18 +157,34 @@ const useScrollOrbit = () => {
         end: 'bottom bottom',
         scrub: 1,
         onUpdate: (self) => {
-          const mv = document.getElementById('track-maxx-model') as any;
-          if (mv) {
-            const { orbit, fov } = interpolateOrbit(self.progress);
-            mv.setAttribute('camera-orbit', orbit);
-            mv.setAttribute('field-of-view', fov);
+          const bandEl = document.getElementById('track-maxx-model') as HTMLElement | null;
+          const bottleEl = document.getElementById('track-maxx-bottle') as HTMLElement | null;
+
+          const { bandOpacity, bottleOpacity } = getModelVisibility(self.progress);
+
+          if (bandEl) {
+            const { orbit, fov } = interpolateKeyframes(BAND_KEYFRAMES, self.progress);
+            bandEl.setAttribute('camera-orbit', orbit);
+            bandEl.setAttribute('field-of-view', fov);
+            bandEl.style.opacity = String(bandOpacity);
+            bandEl.style.pointerEvents = bandOpacity > 0.3 ? 'auto' : 'none';
           }
+
+          if (bottleEl) {
+            const { orbit, fov } = interpolateKeyframes(BOTTLE_KEYFRAMES, self.progress);
+            bottleEl.setAttribute('camera-orbit', orbit);
+            bottleEl.setAttribute('field-of-view', fov);
+            bottleEl.style.opacity = String(bottleOpacity);
+            bottleEl.style.pointerEvents = bottleOpacity > 0.3 ? 'auto' : 'none';
+          }
+
           if (glowRef.current) {
             const intensity = getGlowIntensity(self.progress);
             glowRef.current.style.boxShadow = `0 0 200px 80px rgba(255,107,53,${intensity})`;
           }
+
           if (modelWrapperRef.current) {
-            modelWrapperRef.current.style.opacity = String(getModelOpacity(self.progress));
+            modelWrapperRef.current.style.opacity = String(getWrapperOpacity(self.progress));
           }
         },
       });
