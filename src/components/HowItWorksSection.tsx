@@ -104,7 +104,16 @@ const HowItWorksSection = () => {
                     >
                       <Icon size={20} style={{ color: 'var(--tm-accent)' }} />
                     </div>
+                    </div>
                   </div>
+                  <div className="relative overflow-hidden mb-4" style={{ width: '100%', maxWidth: '200px', aspectRatio: '3/4' }}>
+                    <img
+                      src={s.image}
+                      alt={s.title}
+                      className="w-full h-full object-cover"
+                      style={{ borderRadius: '8px', border: '1px solid rgba(255,255,255,0.06)' }}
+                      loading="lazy"
+                    />
                   <h3
                     className="font-heading text-2xl md:text-3xl mb-3"
                     style={{ color: 'var(--text)' }}

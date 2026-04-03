@@ -16,6 +16,24 @@ const CTASection = () => {
             backdropFilter: 'blur(16px)',
           }}
         >
+          {/* Gym context strip */}
+          <div className="flex items-center justify-center gap-3 mb-8 anim-fade">
+            {['/gym-squat.jpg', '/gym-mirror.jpg', '/gym-dumbbell.jpg'].map((src, i) => (
+              <div
+                key={i}
+                className="overflow-hidden"
+                style={{
+                  width: '64px',
+                  height: '64px',
+                  borderRadius: '12px',
+                  border: '1px solid rgba(255,107,53,0.15)',
+                }}
+              >
+                <img src={src} alt="Track-Maxx in gym" className="w-full h-full object-cover" loading="lazy" />
+              </div>
+            ))}
+          </div>
+
           <p className="font-mono-label mb-4 anim-up" style={{ color: 'var(--tm-accent)' }}>
             Stop Guessing. Start Seeing.
           </p>
