@@ -5,46 +5,84 @@ const CTASection = () => {
 
   return (
     <section id="waitlist" ref={ref} className="py-[var(--section-pad)]">
-      <div className="mx-auto max-w-content px-[var(--gutter)] text-center">
-        <p className="font-mono-label anim-up mb-4" style={{ color: 'var(--tm-accent)' }}>
-          Early Access
-        </p>
-        <h2
-          className="font-heading text-5xl md:text-6xl lg:text-7xl anim-up stagger-1 mb-6"
-          style={{ color: 'var(--text)' }}
+      <div className="mx-auto max-w-content px-[var(--gutter)] flex justify-center">
+        {/* Pill-shaped footer container */}
+        <div
+          className="relative w-full max-w-2xl text-center px-8 md:px-16 py-16 md:py-20 anim-fade"
+          style={{
+            background: 'var(--card-bg)',
+            border: '1px solid var(--tm-border)',
+            borderRadius: '40px',
+            backdropFilter: 'blur(16px)',
+          }}
         >
-          Be First to Track.
-        </h2>
-        <p
-          className="anim-up stagger-2 text-lg max-w-md mx-auto mb-10"
-          style={{ color: 'var(--text-secondary)' }}
-        >
-          Limited first-batch units shipping Q3 2026. Join the waitlist — no payment required.
-        </p>
-
-        <div className="anim-up stagger-3 flex flex-col sm:flex-row items-center justify-center gap-3 max-w-md mx-auto">
-          <input
-            type="email"
-            placeholder="your@email.com"
-            className="w-full sm:flex-1 px-5 py-3 rounded-full text-sm outline-none transition-all focus:ring-2"
+          <p className="font-mono-label mb-4 anim-up" style={{ color: 'var(--tm-accent)' }}>
+            Stop Guessing. Start Seeing.
+          </p>
+          <h2
+            className="font-heading anim-up stagger-1 mb-6"
             style={{
-              background: 'rgba(255,255,255,0.04)',
-              border: '1px solid var(--tm-border)',
               color: 'var(--text)',
-              fontFamily: "'Fragment Mono', monospace",
-              backdropFilter: 'blur(8px)',
-            }}
-          />
-          <button
-            className="w-full sm:w-auto px-8 py-3 rounded-full font-semibold text-sm tracking-wider uppercase transition-all hover:scale-105"
-            style={{
-              background: 'var(--tm-accent)',
-              color: '#fff',
-              fontFamily: "'Fragment Mono', monospace",
+              fontSize: 'clamp(36px, 5vw, 64px)',
+              letterSpacing: '-0.03em',
+              lineHeight: 0.95,
             }}
           >
-            Join Waitlist
-          </button>
+            Your gym sees every rep.
+            <br />
+            Now your{' '}
+            <em style={{ color: 'var(--tm-accent)', fontStyle: 'italic' }}>tracker</em>{' '}
+            does too.
+          </h2>
+
+          <div className="anim-up stagger-2 mb-8">
+            <a
+              href="#"
+              className="inline-block px-10 py-4 rounded-full font-semibold transition-all hover:scale-105 active:scale-95"
+              style={{
+                background: 'var(--tm-accent)',
+                color: '#000',
+                fontFamily: "'Fragment Mono', monospace",
+                fontSize: '14px',
+                letterSpacing: '0.08em',
+                textTransform: 'uppercase',
+              }}
+            >
+              Join the Waitlist — £69 Early Access
+            </a>
+          </div>
+
+          <p
+            className="anim-up stagger-3 text-sm mb-8"
+            style={{ color: 'var(--text-tertiary)' }}
+          >
+            First 500 sign-ups get founding member pricing locked for life.
+          </p>
+
+          {/* Email input */}
+          <div className="anim-up stagger-4 flex flex-col sm:flex-row items-center justify-center gap-3 max-w-sm mx-auto">
+            <input
+              type="email"
+              placeholder="your@email.com"
+              className="w-full sm:flex-1 px-5 py-3 rounded-full text-sm outline-none transition-all focus:ring-2"
+              style={{
+                background: 'rgba(255,255,255,0.04)',
+                border: '1px solid var(--tm-border)',
+                color: 'var(--text)',
+                fontFamily: "'Fragment Mono', monospace",
+              }}
+            />
+            <button
+              className="w-full sm:w-auto px-6 py-3 rounded-full font-semibold text-sm tracking-wider uppercase transition-all hover:scale-105"
+              style={{
+                background: 'var(--tm-accent)',
+                color: '#000',
+                fontFamily: "'Fragment Mono', monospace",
+              }}
+            >
+              Join
+            </button>
+          </div>
         </div>
       </div>
     </section>

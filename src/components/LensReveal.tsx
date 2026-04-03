@@ -1,27 +1,56 @@
 import { useScrollReveal } from '@/hooks/useScrollReveal';
 
+const specs = ['150° FOV', 'IP67 Rated', '24g Weight'];
+
 const LensReveal = () => {
   const ref = useScrollReveal();
 
   return (
-    <section ref={ref} className="min-h-[60vh] flex items-center">
+    <section ref={ref} className="min-h-[80vh] flex items-center">
       <div className="mx-auto max-w-content px-[var(--gutter)] w-full">
         <div className="max-w-md ml-auto text-right">
           <p className="font-mono-label mb-3 anim-up" style={{ color: 'var(--tm-accent)' }}>
-            160° Wide-Angle Lens
+            150° Wide-Angle Vision
           </p>
           <h2
-            className="font-heading text-3xl md:text-4xl anim-up stagger-1 mb-4"
-            style={{ color: 'var(--text)' }}
+            className="font-heading text-3xl md:text-4xl lg:text-5xl anim-up stagger-1 mb-5"
+            style={{ color: 'var(--text)', letterSpacing: '-0.03em' }}
           >
-            Sees everything
-            <br />
-            you do.
+            The first tracker that actually{' '}
+            <em style={{ color: 'var(--tm-accent)', fontStyle: 'italic' }}>watches</em>{' '}
+            you train.
           </h2>
-          <p className="text-sm leading-relaxed anim-up stagger-2" style={{ color: 'var(--text-secondary)' }}>
-            A low-power wide-angle camera captures your full range of motion
-            from floor level — no tripod, no phone propped up, no awkward angles.
+          <p
+            className="text-sm md:text-base leading-relaxed anim-up stagger-2 mb-8"
+            style={{ color: 'var(--text-secondary)', lineHeight: 1.7 }}
+          >
+            A wide-angle camera lens sits flush on the band surface — the only visible
+            feature. No protrusion. No moving parts. Just a sapphire window that captures
+            your entire body from any angle.
           </p>
+
+          {/* Spec pills */}
+          <div className="flex flex-wrap justify-end gap-3">
+            {specs.map((spec, i) => {
+              const parts = spec.split(' ');
+              const num = parts[0];
+              const label = parts.slice(1).join(' ');
+              return (
+                <div
+                  key={spec}
+                  className={`anim-up stagger-${i + 3} inline-flex items-center gap-1.5 px-4 py-2 rounded-full`}
+                  style={{ border: '1px solid var(--tm-border)' }}
+                >
+                  <span className="font-mono-label text-[12px]" style={{ color: 'var(--tm-accent)' }}>
+                    {num}
+                  </span>
+                  <span className="font-mono-label text-[12px]" style={{ color: 'var(--text-secondary)' }}>
+                    {label}
+                  </span>
+                </div>
+              );
+            })}
+          </div>
         </div>
       </div>
     </section>
