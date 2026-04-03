@@ -85,10 +85,16 @@
 /* Corner bracket cards */
 .bracket-card {
   position: relative;
-  background: var(--card-bg);
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
   border: 1px solid var(--tm-border);
   border-radius: var(--radius-card);
-  transition: border-color 0.3s ease;
+  transition: border-color 0.3s ease, background 0.3s ease;
+}
+.bracket-card:hover {
+  border-color: var(--border-hover);
+  background: rgba(0, 0, 0, 0.8);
 }
 .bracket-card::before,
 .bracket-card::after {
@@ -113,9 +119,6 @@
 .bracket-card:hover::before,
 .bracket-card:hover::after {
   border-color: var(--border-accent);
-}
-.bracket-card:hover {
-  border-color: var(--border-hover);
 }
 
 /* Spring animations */
