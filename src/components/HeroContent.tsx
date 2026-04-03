@@ -6,12 +6,12 @@ const HeroContent = () => {
   return (
     <section
       ref={ref}
-      className="relative min-h-screen flex flex-col items-center justify-end pb-12 pointer-events-none"
-      style={{ paddingTop: '45vh' }}
+      className="relative min-h-screen flex flex-col items-center justify-end pb-16 pointer-events-none"
+      style={{ paddingTop: '58vh' }}
     >
       <div className="text-center px-4 pointer-events-auto max-w-3xl mx-auto">
         {/* Badge pill */}
-        <div className="anim-fade inline-flex items-center gap-2 px-4 py-2 rounded-full mb-8" style={{ border: '1px solid var(--tm-border)' }}>
+        <div className="anim-fade inline-flex items-center gap-2 px-4 py-2 rounded-full mb-8" style={{ border: '1px solid var(--tm-border)', background: 'rgba(0,0,0,0.4)' }}>
           <span className="relative flex h-2 w-2">
             <span className="animate-ping absolute inline-flex h-full w-full rounded-full opacity-75" style={{ background: '#22c55e' }} />
             <span className="relative inline-flex rounded-full h-2 w-2" style={{ background: '#22c55e' }} />
@@ -26,7 +26,7 @@ const HeroContent = () => {
           className="font-heading leading-[0.95] anim-up stagger-1 mb-6"
           style={{
             color: 'var(--text)',
-            fontSize: 'clamp(48px, 8vw, 100px)',
+            fontSize: 'clamp(44px, 7vw, 90px)',
             fontWeight: 600,
             letterSpacing: '-0.03em',
           }}
