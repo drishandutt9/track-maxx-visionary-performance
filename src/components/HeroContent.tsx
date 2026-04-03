@@ -58,18 +58,6 @@ const HeroContent = () => {
           >
             Join the Waitlist — Early Access £69
           </a>
-          <a
-            href="#"
-            className="transition-opacity hover:opacity-80"
-            style={{
-              color: 'var(--text-tertiary)',
-              fontSize: '13px',
-              textDecoration: 'underline',
-              textUnderlineOffset: '3px',
-            }}
-          >
-            Or try the free webcam MVP now — no hardware needed.
-          </a>
         </div>
       </div>
 

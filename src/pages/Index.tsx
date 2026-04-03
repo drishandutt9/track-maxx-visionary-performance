@@ -114,7 +114,7 @@ const Index = () => {
         <MarqueeTicker />
         <BottleFitSection />
         <ComparisonSection />
-        <PricingSection />
+        
         <CTASection />
         <Footer />
       </div>
