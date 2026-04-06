@@ -143,6 +143,7 @@ const Index = () => {
         <HowItWorksSection />
         <FeaturesSection />
         <MarqueeTicker />
+        <EcosystemSection />
         <BottleFitSection />
         <ComparisonSection />
         
