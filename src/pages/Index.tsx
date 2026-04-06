@@ -7,6 +7,7 @@ import HowItWorksSection from '@/components/HowItWorksSection';
 import FeaturesSection from '@/components/FeaturesSection';
 import MarqueeTicker from '@/components/MarqueeTicker';
 import EcosystemSection from '@/components/EcosystemSection';
+import AppShowcaseSection from '@/components/AppShowcaseSection';
 import BottleFitSection from '@/components/BottleFitSection';
 import ComparisonSection from '@/components/ComparisonSection';
 import PricingSection from '@/components/PricingSection';
@@ -144,6 +145,7 @@ const Index = () => {
         <FeaturesSection />
         <MarqueeTicker />
         <EcosystemSection />
+        <AppShowcaseSection />
         <BottleFitSection />
         <ComparisonSection />
         
